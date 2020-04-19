@@ -1,0 +1,1 @@
+# For defining the style of header, footer and other things

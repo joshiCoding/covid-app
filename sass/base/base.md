@@ -1,0 +1,1 @@
+# For defining global identifier and variables
