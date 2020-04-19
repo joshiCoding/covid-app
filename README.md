@@ -27,3 +27,11 @@
  - sass
  - index.html
  - main.scss
+
+ ## Project Specifics
+
+ ### Naming Convention
+  - BEM naming convention ( [click here to know BEM](https://www.youtube.com/watch?v=er1JEDuPbZQ) )
+
+  ### Design System for Refernce
+  - Material Design from google ( [click here for official documentation](https://material.io/design/guidelines-overview))
