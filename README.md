@@ -20,11 +20,16 @@
  - Designing addition
  - Optimization
 
-## Folder Structure
+## Project Folder Structure
  - img
  - css
  - js
  - sass
+    - abstracts ( for storing color and typography)
+    - base (for storing global variables)
+    - components (for storing desing of header, footer and other universal stuff)
+    - layouts (for storing general layouts used on the site)
+    - vendors (for storing vendor specific files )
  - index.html
  - main.scss
 
