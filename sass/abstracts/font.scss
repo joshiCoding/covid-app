@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+$font-stack :'Open Sans', sans-serif; 
+
+//font weights
+$font-light : 300;
+$font-regular : 400;
+$font-bold : 600;
+$font-bolder: 700;
+$font-extra-bold:800;
+
+//font mixin
+
+@mixin font($weight){
+ font-family : $font-stack;
+ font-weight : $weight;
+}
+
+

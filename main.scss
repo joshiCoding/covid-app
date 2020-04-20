@@ -1,8 +1,13 @@
 // 1. config files and helpers
+@import "sass/abstracts/color";
+@import "sass/abstracts/font";
+
 
 //2.vendors
 @import "sass/vendor/normalize";
+
 //3.base styles
+@import "sass/base/global";
 
 //4.layout
 
