@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -44,7 +45,8 @@ h1 {
    * 2. Show the overflow in Edge and IE.
    */
 hr {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -81,7 +83,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -228,7 +231,8 @@ fieldset {
    *    `fieldset` elements in all browsers.
    */
 legend {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -262,7 +266,8 @@ textarea {
    */
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */
@@ -335,5 +340,285 @@ template {
    */
 [hidden] {
   display: none;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+button {
+  border: none;
+}
+
+.chips {
+  border: 2px solid #248C1D;
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.card {
+  margin: 20px;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 10px;
+}
+
+.card .stat_number {
+  font-size: 2rem;
+}
+
+.card .stat_name {
+  font-size: 1.3rem;
+}
+
+.stat_bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+  margin: 10px 0;
+  background: #75D9E3;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 10px;
+}
+
+header nav .mainMenu {
+  display: none;
+}
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 20px;
+}
+
+section .head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.currentSituation .situation_body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.currentSituation .situation_body .c1,
+.currentSituation .situation_body .c2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.datewiseData .datewise_chips {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.datewiseData .datewise_chips-left {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.datewiseData .datewise_chips-right {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.datewiseData .datewise_graph {
+  border: 2px solid lightblue;
+  width: 100%;
+  height: 200px;
+}
+
+.statewiseData {
+  margin: 0;
+  padding: 0 20px;
+  background: #E7FFE5;
+}
+
+.statewiseData .statewise_graph {
+  border: 2px solid lightblue;
+  width: 100%;
+  height: 200px;
+}
+
+.statewiseData .statewise_viewDetailBtn {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #248C1D;
+  color: white;
+  font-weight: 700;
+}
+
+.statewiseData .statewise_effectedArea {
+  width: 100%;
+  background: #D9F6F8;
+  margin: 20px 0;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.statewiseData .statewise_effectedArea_head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.statewiseData .statewise_effectedArea_head button {
+  background: inherit;
+}
+
+.statewiseData .statewise_effectedArea_cityStat_graph {
+  border: 2px solid lightblue;
+  width: 100%;
+  height: 200px;
+}
+
+.map_head {
+  width: 100%;
+}
+
+.map_head h2 {
+  margin: 10px 0;
+}
+
+.map_statBox {
+  border: 2px solid lightblue;
+  width: 200px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.map_statBox p {
+  margin: 0;
+}
+
+.map_statBox_stateName {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.map_statBox_stateStat {
+  width: 100%;
+}
+
+.map_statBox_stateStat .map_stateBox_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.map_mapSvg {
+  width: 100%;
+  border: 2px solid lightblue;
+  height: 200px;
+  margin: 10px 0;
 }
 /*# sourceMappingURL=main.css.map */

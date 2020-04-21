@@ -47,30 +47,34 @@
     <!-- content -->
 
     <section class="currentSituation">
-        <div class="situation_head">
+        <div class="situation_head head">
             <h2 class= "heading">Current Situation</h2>
             <p class="updated"><b>Updated on </b> <br> 20 April,2020 <br> IST 12:00 AM</p>
         </div>
-        <div class="situation_body">
-            <div class="stat_active card">
-                <p class="number">16432</p>
-                <p class="stat_name">Active</p>
-                <p class="stat_change">+242</p>
+        <div class="situation_body card_container">
+            <div class="c1">
+                <div class="stat_active card">
+                    <p class="stat_number">16432</p>
+                    <p class="stat_name">Active</p>
+                    <p class="stat_change">+242</p>
+                </div>
+                <div class="stat_confirmed card">
+                    <p class="stat_number">14271</p>
+                    <p class="stat_name">Confirmed</p>
+                    <p class="stat_change">+242</p>
+                </div>
             </div>
-            <div class="stat_confirmed card">
-                <p class="number">14271</p>
-                <p class="stat_name">Confirmed</p>
-                <p class="stat_change">+242</p>
-            </div>
-            <div class="stat_recovered card">
-                <p class="number">125</p>
-                <p class="stat_name">Recovered</p>
-                <p class="stat_change">+242</p>
-            </div>
-            <div class="stat_death card">
-                <p class="number">78</p>
-                <p class="stat_name">Death</p>
-                <p class="stat_change">+242</p>
+            <div class="c2">
+                <div class="stat_recovered card">
+                    <p class="stat_number">125</p>
+                    <p class="stat_name">Recovered</p>
+                    <p class="stat_change">+242</p>
+                </div>
+                <div class="stat_death card">
+                    <p class="stat_number">78</p>
+                    <p class="stat_name">Death</p>
+                    <p class="stat_change">+242</p>
+                </div>
             </div>
         </div>
 
@@ -84,9 +88,11 @@
             <div class="datewise_linear chips">Linear</div>
             <div class="datewise_logrithmic chips">Logrithmic</div>
         </div>
+
         <div class="datewise_graph">
 
         </div>
+
         <div class="datewise_chips datewise_chips-right">
             <div class="datewise_lastWeek chips">Last Week</div>
             <div class="datewise_lastMonth chips">Last Month</div>
@@ -102,29 +108,29 @@
 
         </div>
 
-        <button class="statewise_viewDetail">View in Detail</button>
+        <button class="statewise_viewDetailBtn">View in Detail</button>
 
 
         <div class="statewise_effectedArea">
             <div class="statewise_effectedArea_head">
                 <h3>How Effected is your area</h3>
-                <button class="statewise_effectedArea_search">Srch</button>
+                <button class="statewise_effectedArea_searchBtn">Srch</button>
             </div>
 
             <div class="statewise_effectedArea_stateStat">
                 <p class = "statewise_effectedArea_stateName">Uttar Pradesh</p>
                 <div class="statewise_effectedArea_stat">
-                    <div class="statewise_effectedArea_stat_bar-active">
+                    <div class="statewise_effectedArea_stat_bar-active stat_bar">
                         <p>Active</p>
                         <h4>480</h4>
                     </div>
-                    <div class="statewise_effectedArea_stat_bar-confirmed">
+                    <div class="statewise_effectedArea_stat_bar-confirmed stat_bar">
                         <p>Confirmed</p>
                         <h4>432</h4>
-                    </div><div class="statewise_effectedArea_stat_bar-recovered">
+                    </div><div class="statewise_effectedArea_stat_bar-recovered stat_bar">
                         <p>Recovered</p>
                         <h4>100</h4>
-                    </div><div class="statewise_effectedArea_stat_bar-death">
+                    </div><div class="statewise_effectedArea_stat_bar-death stat_bar">
                         <p>Death</p>
                         <h4>100</h4>
                     </div>
@@ -141,7 +147,31 @@
     </section>
 
     <section class="map">
+        <div class="map_head">
+            <h2>In Map</h2>
+            <p class="map_note">(Tap on map to see the stat of that area)</p>
+        </div>
+        <div class="map_statBox">
+            <p class="map_statBox_stateName">Uttar Pradesh</p>
+            <div class="map_statBox_stateStat">
+                <div class="map_statBox_stateStat-active map_stateBox_box">   
+                    <p>Active</p> <p class="map_statBox_stateStat-activeNo">432</p>
+                </div>
+                <div class="map_statBox_stateStat-confirmed map_stateBox_box">
+                    <p>Confirmed</p> <p class="map_statBox_stateStat-confirmedNo">422</p>
 
+                </div>
+                <div class="map_statBox_stateStat-recovered map_stateBox_box">
+                    <p>Recovered</p> <p class="map_statBox_stateStat-recoveredNo">242</p>
+                </div>
+                <div class="map_statBox_stateStat-death map_stateBox_box">
+                    <p>Death</p> <p class="map_statBox_stateStat-deathNo">44</p>
+                </div>
+            </div>
+        </div>
+        <div class="map_mapSvg">
+            map here
+        </div>
     </section>
 
 
