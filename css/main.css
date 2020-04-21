@@ -618,7 +618,19 @@ section .head {
 .map_mapSvg {
   width: 100%;
   border: 2px solid lightblue;
-  height: 200px;
-  margin: 10px 0;
+  height: auto;
+  margin: 0 -20px;
+}
+
+#indiaMap-svg {
+  height: 300px;
+  width: 80px;
+  stroke: #ddd;
+  stroke-width: 1px;
+}
+
+#indiaMap-svg path:hover,
+#indiaMap-svg path:focus {
+  stroke-width: 3px;
 }
 /*# sourceMappingURL=main.css.map */

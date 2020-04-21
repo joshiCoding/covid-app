@@ -6,16 +6,16 @@
     <title>Covid Status Tracker</title>
 
     <!-- preloader script -->
-    <script src="#"></script>
+    <!-- <script src="#"></script> -->
     
     <!-- main css file link -->
     <link rel="stylesheet" href="css/main.css">
     
     <!-- page specific css file link -->
-    <link rel="stylesheet" href="#">
+    <!-- <link rel="stylesheet" href="#"> -->
     
     <!-- generic script loading with defer -->
-    <script defer src="#"></script>
+    <!-- <script defer src="#"></script> -->
 
 </head>
 <body>
@@ -152,7 +152,7 @@
             <p class="map_note">(Tap on map to see the stat of that area)</p>
         </div>
         <div class="map_statBox">
-            <p class="map_statBox_stateName">Uttar Pradesh</p>
+            <p class="map_statBox_stateName">Total</p>
             <div class="map_statBox_stateStat">
                 <div class="map_statBox_stateStat-active map_stateBox_box">   
                     <p>Active</p> <p class="map_statBox_stateStat-activeNo">432</p>
@@ -170,13 +170,29 @@
             </div>
         </div>
         <div class="map_mapSvg">
-            map here
+            <object id="india-map" data="/img/svg/indiaMap.svg" type="image/svg+xml"></object>
         </div>
     </section>
 
 
+    <!-- custom script for testing map svg -->
+    <script>
+        const map = document.querySelector('#india-map').contentDocument;
+        const state = document.querySelector('.map_statBox_stateName');
 
+        const svgIndia = map.getElementById('indiaMap-svg');
 
+        svgIndia.addEventListener('click',e =>{
+            
+            console.log(e.target.getAttribute('title'));
+            // e.target.style.strokeWidth = "3px";
+            state.innerText = e.target.getAttribute('title');
+            if(e.target.getAttribute('title') === null){
+                state.innerText = "Total";
+            }
+        })
+      
+    </script>
 
 
     <!-- footer -->

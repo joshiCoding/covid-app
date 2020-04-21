@@ -215,12 +215,29 @@ section{
     &_mapSvg{
         width:100%;
         border:2px solid lightblue;
-        height:200px;
-        margin:$spacer 0;
+        height:auto;
+        margin:0 -2*$spacer;
+
     }
 }
 
+#indiaMap-svg{
+    height:300px;
+    width:80px;
+    stroke : #ddd;
+    stroke-width:1px;
+    // height: "695.70178";
+    // width :"611.85999";
 
+    path:hover,
+    path:focus{
+    stroke-width:3px;
+ }
+
+}
+      
+
+ 
 
 
 
