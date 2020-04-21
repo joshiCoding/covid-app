@@ -353,6 +353,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   background: white;
+  color: #248C1D;
 }
 
 button {
@@ -587,14 +588,14 @@ header .menuBtn .menuBar {
   width: 30px;
   height: 3px;
   position: relative;
-  background: black;
+  background: #0C5507;
 }
 
 header .menuBtn .menuBar::before, header .menuBtn .menuBar::after {
   content: '';
   width: 30px;
   height: 3px;
-  background: black;
+  background: #0C5507;
   position: absolute;
   top: -10px;
   left: 0;
