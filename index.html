@@ -15,35 +15,46 @@
     <!-- <link rel="stylesheet" href="#"> -->
     
     <!-- generic script loading with defer -->
-    <!-- <script defer src="#"></script> -->
+    <script defer src="/js/main.js"></script>
 
 </head>
 <body>
     <!-- preloader -->
 
     <!-- header -->
+    <nav class="mainNav">
+        <button class="menuBtn-close">
+            <div class="menuBar-close"></div>
+        </button>
+        
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">India Map</a></li>
+                <li><a href="#">World View</a></li>
+                <li><a href="#">Donate to PM fund</a></li>
+                <li><a href="#">Get Official Help</a></li>
+                <li><a href="#">About Us and App</a></li>
+            </ul>    
+      
+    </nav>
+   
+    
+
+    <div class="page">
 
     <header>
         <h1 class="logo">CovidTracker</h1>
-        <nav class ="mainNav">
-            <button class="menuBar">|||</button>
-            <div class="mainMenu">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">India Map</a></li>
-                    <li><a href="#">World View</a></li>
-                    <li><a href="#">Donate to PM fund</a></li>
-                    <li><a href="#">Get Official Help</a></li>
-                    <li><a href="#">About Us and App</a></li>
-                </ul>    
-            </div>
-        </nav>
+        <button class="menuBtn">
+            <div class="menuBar"></div>
+        </button>
+            
     </header>
 
     <nav class="fixedBottom">
 
     </nav>
-
+    
+  
     <!-- content -->
 
     <section class="currentSituation">
@@ -176,7 +187,7 @@
 
 
     <!-- custom script for testing map svg -->
-    <script>
+    <!-- <script>
         const map = document.querySelector('#india-map').contentDocument;
         const state = document.querySelector('.map_statBox_stateName');
 
@@ -192,7 +203,7 @@
             }
         })
       
-    </script>
+    </script> -->
 
 
     <!-- footer -->
@@ -200,5 +211,6 @@
     <footer>
 
     </footer>
+</div>
 </body>
 </html>

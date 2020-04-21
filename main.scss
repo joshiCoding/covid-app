@@ -10,9 +10,11 @@
 @import "sass/base/global";
 body{
     @include font($font-regular);
+    background:white;
 }
 button{
     border:none;
+    background:inherit;
 }
 $spacer : 10px;
 
@@ -60,6 +62,79 @@ $spacer : 10px;
     background:$clr-sec-light;
 }
 
+.mainNav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background:$clr-prim-lighter;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-end;
+    overflow:hidden;
+    pointer-events:all;
+  
+    .menuBtn-close{
+        width:60px;
+        height:60px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        position:absolute;
+        top:1%;
+        right:4%;
+        cursor:pointer;
+        .menuBar-close{
+            width:30px;
+            height:3px;
+            position:relative;
+            &::before,
+            &::after{
+                content:'';
+                width:30px;
+                height:3px;
+                background:black;
+                position:absolute;
+                top:0;
+                left:0;
+                transform:rotate(45deg);
+            }
+            &::after{
+                transform:rotate(-45deg);
+            }
+       }
+    }
+    ul{
+        list-style:none;
+        display:inline-block;
+        li{
+            padding: $spacer;
+            margin:$spacer;
+            margin-right:3*$spacer;
+            a{
+                text-decoration:none;
+            }
+        }
+    }
+
+}
+.page{
+    background:white;
+    transition:transform 250ms ease-out;
+
+
+}
+.page-out{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+    transform:scale(0.9) translateX(-80vw);
+    transition:transform 250ms ease-out;
+}
+
+
 //5.layout
 
 header{
@@ -68,10 +143,35 @@ header{
     justify-content:space-between;
     padding:0 $spacer;
 
-    nav{
-        .mainMenu{
-            display:none;
-        }
+    .menuBtn{
+        width:60px;
+        height:60px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+
+        
+        .menuBar{
+            width:30px;
+            height:3px;
+            position:relative;
+            background:black;
+            &::before,
+            &::after{
+                content:'';
+                width:30px;
+                height:3px;
+                background:black;
+                position:absolute;
+                top:-10px;
+                left:0;
+            }
+            &::after{
+                top:10px;
+                width: 20px;
+            }
+       }
     }
 
    
@@ -217,6 +317,7 @@ section{
         border:2px solid lightblue;
         height:auto;
         margin:0 -2*$spacer;
+        overflow:hidden;
 
     }
 }
