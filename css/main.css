@@ -37,7 +37,23 @@ h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
+/**
+Changes need to be done
+*/
+.btn {
+  border: 1px;
+  border-radius: 10px;
+  background-color: #b1ecf1;
+  color: black;
+  padding: 5px 2px 2px 2px;
+  cursor: pointer;
+}
 
+/* Green */
+.success {
+  border-color: #4CAF50;
+  color: green;
+}
 /* Grouping content
      ========================================================================== */
 /**
