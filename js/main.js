@@ -71,13 +71,13 @@ menuBtnClose.addEventListener('click', e =>{
 
 // using the fetch api here
 function getData(){
-    fetch('https://api.covid19india.org/data.json')
-    .then(res => res.json())
-    .then( data =>{
-        console.log(data);
-        fillCurrentSituation(data);
+    // fetch('https://api.covid19india.org/data.json')
+    // .then(res => res.json())
+    // .then( data =>{
+    //     console.log(data);
+    //     fillCurrentSituation(data);
 
-    })
+    // })
 }
 
 function fillCurrentSituation(data){
@@ -193,3 +193,29 @@ const statewiseChart = new Chart(statewiseCanvas, {
 }
    
 )
+
+// custom script for testing map svg 
+const mapObj = document.querySelector('#india-map');
+mapObj.addEventListener('load', mapLoad);
+console.log(mapObj);
+
+function mapLoad(){
+    const map = mapObj.contentDocument;
+    const state = document.querySelector('.map_statBox_stateName');
+    
+    console.log(map);
+
+    const svgIndia = map.getElementById('indiaMap-svg');
+
+    svgIndia.addEventListener('click',e =>{
+        
+        console.log(e.target.getAttribute('title'));
+        state.innerText = e.target.getAttribute('title');
+        if(e.target.getAttribute('title') === null){
+            state.innerText = "Total";
+        }
+    })
+}
+
+
+    

@@ -6,14 +6,12 @@
    version="1.1"
    id="indiaMap-svg"
    height = "695.70178"
-   width  = "611.85999"
-   ViewBox="68.184010 37.084109 97.418146 6.753659"
->
+   width  = "611.85999">
 <style>
 #indiaMap-svg{
-    height:300px;
+    height:300;
     width:80px;
-    stroke : #ddd;
+    stroke : #00A4AE;
     stroke-width:1px;
 }
 #indiaMap-svg  path:hover,

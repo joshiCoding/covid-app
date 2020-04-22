@@ -164,6 +164,8 @@ $spacer : 10px;
     overflow:hidden;
     transform:scale(0.9) translateX(-80vw);
     transition:transform 250ms ease-out;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+    border-radius:15px;
 }
 
 
@@ -311,8 +313,11 @@ section{
 
 
 .map{
+    margin:0;
     &_head{
         width:100%;
+        padding:2*$spacer;
+
 
         h2{
             margin:$spacer 0;
@@ -322,6 +327,8 @@ section{
         border:2px solid lightblue;
         width:200px;
         height:200px;
+        padding:2*$spacer;
+
         display:flex;
         flex-direction:column;
         align-items:center;
@@ -348,9 +355,9 @@ section{
     }
     &_mapSvg{
         width:100%;
-        // border:2px solid lightblue;
+        border:2px solid lightblue;
         height:auto;
-        margin:0 -2*$spacer;
+        padding:0;
         overflow:hidden;
         display:flex;
         align-items:center;
@@ -362,10 +369,11 @@ section{
 #india-map svg{
     height:300px;
     width:80px;
-    stroke : #ddd;
+    stroke : $clr-sec;
     stroke-width:1px;
     // height: "695.70178";
     // width :"611.85999";
+    // view-box : "68.184010 37.084109 97.418146 6.753659"
 
     path:hover,
     path:focus{

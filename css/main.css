@@ -554,6 +554,9 @@ button {
   transition: -webkit-transform 250ms ease-out;
   transition: transform 250ms ease-out;
   transition: transform 250ms ease-out, -webkit-transform 250ms ease-out;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
 }
 
 header {
@@ -734,8 +737,13 @@ section .head {
   height: 200px;
 }
 
+.map {
+  margin: 0;
+}
+
 .map_head {
   width: 100%;
+  padding: 20px;
 }
 
 .map_head h2 {
@@ -746,6 +754,7 @@ section .head {
   border: 2px solid lightblue;
   width: 200px;
   height: 200px;
+  padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -791,8 +800,9 @@ section .head {
 
 .map_mapSvg {
   width: 100%;
+  border: 2px solid lightblue;
   height: auto;
-  margin: 0 -20px;
+  padding: 0;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -808,7 +818,7 @@ section .head {
 #india-map svg {
   height: 300px;
   width: 80px;
-  stroke: #ddd;
+  stroke: #00A4AE;
   stroke-width: 1px;
 }
 
