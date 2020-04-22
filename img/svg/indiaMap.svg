@@ -6,7 +6,9 @@
    version="1.1"
    id="indiaMap-svg"
    height = "695.70178"
-   width  = "611.85999">
+   width  = "611.85999"
+   viewBox = "200 0 197.418146 696.753659"
+>
 <style>
 #indiaMap-svg{
     height:300;
