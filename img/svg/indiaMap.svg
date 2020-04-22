@@ -15,9 +15,6 @@
     width:80px;
     stroke : #ddd;
     stroke-width:1px;
-    <!-- // height: "695.70178";
-    // width :"611.85999"; -->
-
     path:hover,
     path:focus{
     stroke-width:3px;
