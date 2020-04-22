@@ -28,6 +28,11 @@ $spacer : 10px;
     border-radius:20px;
     text-align:center;
 }
+.chips-active{
+    background:$clr-prim-light;
+    color:$clr-prim-dark;
+    font-weight:$font-bold;
+}
 .card{
     margin:2*$spacer;
     width:10rem;

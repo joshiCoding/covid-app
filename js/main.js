@@ -18,7 +18,8 @@ const fontClrPrim = clrPrimDark;
 
 const fontClrSec = '#089099';
 
-
+//****** gloabal variables
+let dataofapi ;
 
 
 
@@ -30,19 +31,19 @@ const mainNav = document.querySelector('.mainNav');
 // mainNav.style.zIndex = "-1";
 
 
-console.log(menuBtnClose)
+// console.log(menuBtnClose);
 menuBtn.addEventListener('click', e =>{
     const page = document.querySelector('.page');
     page.classList.toggle("page-out");
-    console.log('inside btn');
+    // console.log('inside btn');
     if(page.classList.contains("page-out")){
         mainNav.style.zIndex = "0";
         mainNav.style.pointerEvents = "auto";
-        console.log("i am here in if");
+        // console.log("i am here in if");
     }
     else{
         mainNav.style.zIndex = "-1";
-        console.log("i am here in else");
+        // console.log("i am here in else");
 
 
     }
@@ -53,15 +54,15 @@ menuBtnClose.addEventListener('click', e =>{
     const mainNav = document.querySelector('.mainNav');
 
     page.classList.toggle("page-out");
-    console.log('inside btn');
+    // console.log('inside btn');
     if(page.classList.contains("page-out")){
         mainNav.style.zIndex = "0";
         mainNav.style.pointerEvents = "auto";
-        console.log("i am here in if");
+        // console.log("i am here in if");
     }
     else{
         mainNav.style.zIndex = "-1";
-        console.log("i am here in else");
+        // console.log("i am here in else");
 
 
     }
@@ -71,17 +72,22 @@ menuBtnClose.addEventListener('click', e =>{
 
 // using the fetch api here
 function getData(){
-    // fetch('https://api.covid19india.org/data.json')
-    // .then(res => res.json())
-    // .then( data =>{
-    //     console.log(data);
-    //     fillCurrentSituation(data);
+     fetch('https://api.covid19india.org/data.json')
+    .then(res => res.json())
+    .then( data =>{
+        // console.log(data);
+        dataofapi = data;
+        fillCurrentSituation(data);
+        fillDatewiseChart(data, 7);
+        fillStatewiseChart(data);
+       
+        console.log(dataofapi);
 
-    // })
+    })
 }
 
 function fillCurrentSituation(data){
-    console.log(data.cases_time_series[data.cases_time_series.length -1]);
+    // console.log(data.cases_time_series[data.cases_time_series.length -1]);
 
     const today = data.cases_time_series[data.cases_time_series.length -1];
 
@@ -122,60 +128,194 @@ function fillCurrentSituation(data){
 }
 getData();
 
-// for displaying datewise chart here
+// ********for displaying datewise chart here
 
 const datewiseCanvas = document.querySelector('#datewise_graph_canvas');
-
-const datewiseChart = new Chart(datewiseCanvas, {
+let datewiseChart = new Chart(datewiseCanvas, {
     type : "line",
     data : {
-        labels : ['1 Apr', '2 Apr', '3 Apr', '4 Apr', '5 Apr'],
+        labels : [],
         datasets :[
             {
                 label : 'Confirmed',
-                data : [1,4,6,8,2],
+                data : [],
                 borderColor: clrWarning
             },
             {
                 label : 'Recovered',
-                data : [2,3,7,3,1],
+                data : [],
                 borderColor: clrPrim
             },
             {
                 label : 'Death',
-                data : [3,2,1,1,2],
+                data : [],
                 borderColor:'#121212'
             },  
            
         ]
     }
 });
+//dynamic update of date-wise chart
+
+function fillDatewiseChart(data, desiredlen){
+    const len = data.cases_time_series.length;
+    //emptying the existing value from chart
+    datewiseChart.data.labels = [];
+    datewiseChart.data.datasets[0].data = [];
+    datewiseChart.data.datasets[1].data = [];
+    datewiseChart.data.datasets[2].data = [];
+
+    console.log(len);
+    const dates = data.cases_time_series.filter((cases, index) => {
+        if((len - desiredlen) <= index){
+            return true;
+        }
+    });
+
+   
+    dates.forEach(cases => {
+        datewiseChart.data.labels.push(cases.date);
+    });
+
+    dates.forEach( cases => {
+        datewiseChart.data.datasets[0].data.push( cases.dailyconfirmed);
+    })
+
+    dates.forEach(cases =>{
+        datewiseChart.data.datasets[1].data.push( cases.dailyrecovered);
+    })
+
+    dates.forEach(cases =>{
+        datewiseChart.data.datasets[2].data.push( cases.dailydeceased);
+    })
+
+    
+     datewiseChart.update();
+}
 
 
-//for displaying statewise chart here
+
+//adding update functionality on buttons
+const dateLinearBtn = document.querySelector('.datewise_linear');
+const dateBarBtn = document.querySelector('.datewise_bar');
+
+const dateWeekBtn = document.querySelector('.datewise_week');
+const dateMonthBtn = document.querySelector('.datewise_month');
+const dateBegBtn = document.querySelector('.datewise_beg');
+
+dateLinearBtn.addEventListener('click', () =>{
+    dateBarBtn.classList.remove('chips-active');
+    dateLinearBtn.classList.add('chips-active');
+
+    datewiseChart.destroy();
+    datewiseChart = new Chart(datewiseCanvas, {
+        type : "line",
+        data : {
+            labels : [],
+            datasets :[
+                {
+                    label : 'Confirmed',
+                    data : [],
+                    borderColor: clrWarning
+                },
+                {
+                    label : 'Recovered',
+                    data : [],
+                    borderColor: clrPrim
+                },
+                {
+                    label : 'Death',
+                    data : [],
+                    borderColor:'#121212'
+                },  
+               
+            ]
+        }
+    });
+    fillDatewiseChart(dataofapi, 7);
+})
+
+dateBarBtn.addEventListener('click', () =>{
+    dateLinearBtn.classList.remove('chips-active');
+    dateBarBtn.classList.add('chips-active');
+
+
+    datewiseChart.destroy();
+    datewiseChart = new Chart(datewiseCanvas, {
+        type : "bar",
+        data : {
+            labels : [],
+            datasets :[
+                {
+                    label : 'Confirmed',
+                    data : [],
+                    backgroundColor: clrWarning
+                },
+                {
+                    label : 'Recovered',
+                    data : [],
+                    backgroundColor: clrPrim
+                },
+                {
+                    label : 'Death',
+                    data : [],
+                    backgroundColor:'#121212'
+                },  
+               
+            ]
+        }
+    });
+    fillDatewiseChart(dataofapi, 7);
+});
+
+
+dateWeekBtn.addEventListener('click', () =>{
+    dateWeekBtn.classList.add('chips-active');
+    dateMonthBtn.classList.remove('chips-active');
+    dateBegBtn.classList.remove('chips-active');
+
+    fillDatewiseChart(dataofapi, 7);
+});
+dateMonthBtn.addEventListener('click',() =>{
+    dateWeekBtn.classList.remove('chips-active');
+    dateMonthBtn.classList.add('chips-active');
+    dateBegBtn.classList.remove('chips-active');
+
+    fillDatewiseChart(dataofapi , 30);
+})
+dateBegBtn.addEventListener('click', () =>{
+    dateWeekBtn.classList.remove('chips-active');
+    dateMonthBtn.classList.remove('chips-active');
+    dateBegBtn.classList.add('chips-active');
+
+    fillDatewiseChart(dataofapi , dataofapi.cases_time_series.length);
+})
+
+
+//**********************for displaying statewise chart here
 
 const statewiseCanvas = document.querySelector('#statewise_graph_canvas');
 
 const statewiseChart = new Chart(statewiseCanvas, {
     type :'horizontalBar',
     data : {
-        labels : ['Maharastra','Haryana', 'Delhi', 'Uttar Pradesh', 'West Bengal'],
+        labels : [],
         datasets :[
             {
                 label : 'Confirmed',
-                data : [1,4,6,8,2],
+                data : [],
                 backgroundColor:clrWarning
             },
             {
                 label : 'Recovered',
-                data : [2,3,7,3,1],
+                data : [],
                 backgroundColor:clrPrim
 
             },
             {
                 label : 'Death',
-                data : [3,2,1,1,2],
-                backgroundColor:'#121212'
+                data : [],
+                backgroundColor:'black'
 
             },  
         ]
@@ -193,23 +333,51 @@ const statewiseChart = new Chart(statewiseCanvas, {
 }
    
 )
+//dynamic update of state-wise chart
+
+function fillStatewiseChart(data){
+    const states = data.statewise.filter( (cases , index) =>{
+        if(index <= 5 && index !== 0){
+            return true;
+        }
+    });
+
+   
+    states.forEach(cases => {
+        statewiseChart.data.labels.push(cases.state);
+    });
+
+    states.forEach( cases => {
+        statewiseChart.data.datasets[0].data.push( cases.confirmed);
+    })
+
+    states.forEach(cases =>{
+        statewiseChart.data.datasets[1].data.push( cases.recovered);
+    })
+
+    states.forEach(cases =>{
+        statewiseChart.data.datasets[2].data.push( cases.deceased);
+    })
+
+    
+     statewiseChart.update();
+}
 
 // custom script for testing map svg 
 const mapObj = document.querySelector('#india-map');
 mapObj.addEventListener('load', mapLoad);
-console.log(mapObj);
+// console.log(mapObj);
 
 function mapLoad(){
     const map = mapObj.contentDocument;
     const state = document.querySelector('.map_statBox_stateName');
     
-    console.log(map);
 
     const svgIndia = map.getElementById('indiaMap-svg');
 
     svgIndia.addEventListener('click',e =>{
-        
-        console.log(e.target.getAttribute('title'));
+        // console.log((e.target).getAttribute('title'));
+        e.target.style.strokeWidth = "3px";
         state.innerText = e.target.getAttribute('title');
         if(e.target.getAttribute('title') === null){
             state.innerText = "Total";

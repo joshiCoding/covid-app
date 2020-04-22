@@ -369,6 +369,12 @@ button {
   text-align: center;
 }
 
+.chips-active {
+  background: #7CD275;
+  color: #0C5507;
+  font-weight: 600;
+}
+
 .card {
   margin: 20px;
   width: 10rem;
