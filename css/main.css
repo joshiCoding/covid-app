@@ -426,7 +426,7 @@ button {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #7CD275;
+  background: #75D9E3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -442,7 +442,7 @@ button {
           align-items: flex-end;
   overflow: hidden;
   pointer-events: all;
-  z-index: 1;
+  z-index: -1;
 }
 
 .mainNav .menuBtn-close {
@@ -473,7 +473,7 @@ button {
   content: '';
   width: 30px;
   height: 3px;
-  background: #0C5507;
+  background: #022421;
   position: absolute;
   top: 0;
   left: 0;
@@ -499,7 +499,7 @@ button {
 
 .mainNav ul li:hover > a,
 .mainNav ul li:focus > a {
-  color: #248C1D;
+  color: #022421;
 }
 
 .mainNav ul li:hover > a::before,
@@ -512,7 +512,7 @@ button {
 
 .mainNav ul li a {
   text-decoration: none;
-  color: #0C5507;
+  color: #05554e;
   font-weight: 700;
   font-size: 1.5rem;
   position: relative;
@@ -525,7 +525,7 @@ button {
   left: 0;
   width: 100%;
   height: 2px;
-  background: #0C5507;
+  background: #022421;
   -webkit-transform: scale(0);
           transform: scale(0);
   -webkit-transform-origin: right;
@@ -681,7 +681,8 @@ section .head {
 .datewiseData .datewise_graph {
   border: 2px solid lightblue;
   width: 100%;
-  height: 200px;
+  height: auto;
+  overflow: hidden;
 }
 
 .statewiseData {
@@ -693,7 +694,8 @@ section .head {
 .statewiseData .statewise_graph {
   border: 2px solid lightblue;
   width: 100%;
-  height: 200px;
+  height: auto;
+  overflow: hidden;
 }
 
 .statewiseData .statewise_viewDetailBtn {
@@ -789,21 +791,29 @@ section .head {
 
 .map_mapSvg {
   width: 100%;
-  border: 2px solid lightblue;
   height: auto;
   margin: 0 -20px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-#indiaMap-svg {
+#india-map svg {
   height: 300px;
   width: 80px;
   stroke: #ddd;
   stroke-width: 1px;
 }
 
-#indiaMap-svg path:hover,
-#indiaMap-svg path:focus {
+#india-map svg path:hover,
+#india-map svg path:focus {
   stroke-width: 3px;
 }
 /*# sourceMappingURL=main.css.map */
