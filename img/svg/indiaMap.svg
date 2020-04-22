@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="/css/main.css" type = "text/css"?>
 <svg
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +10,6 @@
    ViewBox="68.184010 37.084109 97.418146 6.753659"
 >
 <style>
-  @import url('css/main.css');
 </style>
 
 
