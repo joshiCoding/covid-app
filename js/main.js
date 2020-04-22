@@ -1,3 +1,27 @@
+// color used in chart and other things
+const clrPrim = "#248C1D";
+const clrPrimLighter = '#E7FFE5';
+const clrPrimLight = '#7CD275';
+const clrPrimDark = '#0C5507';
+
+const clrSec = '#00A4AE';
+const clrSecLight= '#75D9E3';
+const clrSecLighter = '#D9F6F8';
+const clrMapBorder = '#28EDFA';
+
+
+const clrWarning = '#D0387D';
+
+
+//font colors
+const fontClrPrim = clrPrimDark;
+
+const fontClrSec = '#089099';
+
+
+
+
+
 // for navbar
 const menuBtn = document.querySelector('.menuBtn');
 const menuBtnClose = document.querySelector('.menuBtn-close');
@@ -97,3 +121,75 @@ function fillCurrentSituation(data){
     
 }
 getData();
+
+// for displaying datewise chart here
+
+const datewiseCanvas = document.querySelector('#datewise_graph_canvas');
+
+const datewiseChart = new Chart(datewiseCanvas, {
+    type : "line",
+    data : {
+        labels : ['1 Apr', '2 Apr', '3 Apr', '4 Apr', '5 Apr'],
+        datasets :[
+            {
+                label : 'Confirmed',
+                data : [1,4,6,8,2],
+                borderColor: clrWarning
+            },
+            {
+                label : 'Recovered',
+                data : [2,3,7,3,1],
+                borderColor: clrPrim
+            },
+            {
+                label : 'Death',
+                data : [3,2,1,1,2],
+                borderColor:'#121212'
+            },  
+           
+        ]
+    }
+});
+
+
+//for displaying statewise chart here
+
+const statewiseCanvas = document.querySelector('#statewise_graph_canvas');
+
+const statewiseChart = new Chart(statewiseCanvas, {
+    type :'horizontalBar',
+    data : {
+        labels : ['Maharastra','Haryana', 'Delhi', 'Uttar Pradesh', 'West Bengal'],
+        datasets :[
+            {
+                label : 'Confirmed',
+                data : [1,4,6,8,2],
+                backgroundColor:clrWarning
+            },
+            {
+                label : 'Recovered',
+                data : [2,3,7,3,1],
+                backgroundColor:clrPrim
+
+            },
+            {
+                label : 'Death',
+                data : [3,2,1,1,2],
+                backgroundColor:'#121212'
+
+            },  
+        ]
+    },
+    options :{
+        scales : {
+            xAxes : [{
+                stacked : true
+            }],
+            yAxes : [{
+                stacked :true
+            }]
+        }
+    }
+}
+   
+)

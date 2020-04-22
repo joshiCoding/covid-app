@@ -17,6 +17,9 @@
     <!-- generic script loading with defer -->
     <script defer src="js/main.js" type = "text/javascript"></script>
 
+    <!-- javascript for beautiful chart library - Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 </head>
 <body>
     <!-- preloader -->
@@ -100,7 +103,7 @@
         </div>
 
         <div class="datewise_graph">
-
+            <canvas id="datewise_graph_canvas"></canvas>
         </div>
 
         <div class="datewise_chips datewise_chips-right">
@@ -115,7 +118,7 @@
             <h2>State-wise Data</h2>
         </div>
         <div class="statewise_graph">
-
+            <canvas id="statewise_graph_canvas"></canvas>
         </div>
 
         <button class="statewise_viewDetailBtn">View in Detail</button>
