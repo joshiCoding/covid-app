@@ -15,12 +15,11 @@
     width:80px;
     stroke : #ddd;
     stroke-width:1px;
-    path:hover,
-    path:focus{
+}
+#indiaMap-svg  path:hover,
+#indiaMap-svg  path:focus{
     stroke-width:3px;
  }
-
-}
 </style>
 
 
