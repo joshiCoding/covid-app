@@ -81,6 +81,7 @@ function getData(){
         fillDatewiseChart(data, 7);
         fillStatewiseChart(data, 5);
         fillEffectedStateData(data);
+        fillMapBox(data,"Total")
 
 
        
@@ -481,6 +482,23 @@ getEffectedData();
 const mapObj = document.querySelector('#india-map');
 mapObj.addEventListener('load', mapLoad);
 
+const mapActiveNo = document.querySelector('.map_statBox_stateStat-activeNo');
+const mapConfirmedNo = document.querySelector('.map_statBox_stateStat-confirmedNo');
+const mapRecoveredNo = document.querySelector('.map_statBox_stateStat-recoveredNo');
+const mapDeathNo = document.querySelector('.map_statBox_stateStat-deathNo');
+
+function fillMapBox(data, state){
+    data.statewise.forEach( st =>{
+        if(st.state === state){
+            console.log(st.active);
+            mapActiveNo.innerText = st.active;
+            mapConfirmedNo.innerText = st.confirmed;
+            mapRecoveredNo.innerText = st.recovered;
+            mapDeathNo.innerText = st.deaths;
+        }
+    });
+}
+
 function mapLoad(){
     const map = mapObj.contentDocument;
     const state = document.querySelector('.map_statBox_stateName');
@@ -490,11 +508,13 @@ function mapLoad(){
 
     svgIndia.addEventListener('click',e =>{
         // console.log((e.target).getAttribute('title'));
-        e.target.style.strokeWidth = "3px";
+        // e.target.style.strokeWidth = "3px";
         state.innerText = e.target.getAttribute('title');
         if(e.target.getAttribute('title') === null){
             state.innerText = "Total";
         }
+        fillMapBox(dataofapi, state.innerText)
+
     })
 }
 

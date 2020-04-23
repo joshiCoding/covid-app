@@ -812,7 +812,6 @@ section .head {
 
 .map_mapSvg {
   width: 100%;
-  border: 2px solid lightblue;
   height: auto;
   padding: 0;
   overflow: hidden;
