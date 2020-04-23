@@ -282,6 +282,11 @@ section{
         width:100%;
         height:auto;
         overflow:hidden;
+        transition:height 1s linear;
+        &_canvas{
+            height:auto;
+        }
+        
     }
     .statewise_viewDetailBtn{
         width:100%;
@@ -311,6 +316,7 @@ section{
                 border:2px solid lightblue;
                 width:100%;
                 height:200px;
+               
             }
         }
     }

@@ -79,9 +79,10 @@ function getData(){
         dataofapi = data;
         fillCurrentSituation(data);
         fillDatewiseChart(data, 7);
-        fillStatewiseChart(data);
+        fillStatewiseChart(data, 5);
+
        
-        console.log(dataofapi);
+        // console.log(dataofapi);
 
     })
 }
@@ -154,6 +155,7 @@ let datewiseChart = new Chart(datewiseCanvas, {
            
         ]
     }
+    
 });
 //dynamic update of date-wise chart
 
@@ -165,7 +167,7 @@ function fillDatewiseChart(data, desiredlen){
     datewiseChart.data.datasets[1].data = [];
     datewiseChart.data.datasets[2].data = [];
 
-    console.log(len);
+    // console.log(len);
     const dates = data.cases_time_series.filter((cases, index) => {
         if((len - desiredlen) <= index){
             return true;
@@ -295,7 +297,6 @@ dateBegBtn.addEventListener('click', () =>{
 //**********************for displaying statewise chart here
 
 const statewiseCanvas = document.querySelector('#statewise_graph_canvas');
-
 const statewiseChart = new Chart(statewiseCanvas, {
     type :'horizontalBar',
     data : {
@@ -328,16 +329,25 @@ const statewiseChart = new Chart(statewiseCanvas, {
             yAxes : [{
                 stacked :true
             }]
-        }
+        },
+        responsive: true,
+        maintainAspectRatio: true
+      
     }
 }
    
 )
 //dynamic update of state-wise chart
 
-function fillStatewiseChart(data){
+function fillStatewiseChart(data,noOfState){
+    //empting the preexisting data
+    statewiseChart.data.labels = [];
+    statewiseChart.data.datasets[0].data = [];
+    statewiseChart.data.datasets[1].data = [];
+    statewiseChart.data.datasets[2].data = [];
+
     const states = data.statewise.filter( (cases , index) =>{
-        if(index <= 5 && index !== 0){
+        if(index <= noOfState && index !== 0){
             return true;
         }
     });
@@ -363,10 +373,39 @@ function fillStatewiseChart(data){
      statewiseChart.update();
 }
 
-// custom script for testing map svg 
+//for updating link on view btn click
+const viewAllBtn = document.querySelector('.statewise_viewDetailBtn');
+viewAllBtn.addEventListener('click', ()=>{
+    const stateCanvasContainer = statewiseCanvas.parentElement;
+    stateCanvasContainer.style.transition = "transform 1s ease-in-out"
+
+    if(viewAllBtn.innerText === 'View All States'){
+        stateCanvasContainer.style.height = "50rem";
+        stateCanvasContainer.firstChild.style.height = "50rem";      
+        fillStatewiseChart(dataofapi, dataofapi.statewise.length);
+        statewiseChart.options.maintainAspectRatio = 0;
+        
+        statewiseChart.update();
+        viewAllBtn.innerText = "View Five Most Effected";
+    }
+    else if(viewAllBtn.innerText === "View Five Most Effected"){
+        stateCanvasContainer.style.height = "auto";
+        stateCanvasContainer.firstChild.style.height = "auto";
+        
+        fillStatewiseChart(dataofapi, 5);
+        statewiseChart.options.maintainAspectRatio = 'true';
+        statewiseChart.update();
+        viewAllBtn.innerText = "View All States";
+    }
+})
+
+
+
+
+
+// ********************custom script for testing map svg 
 const mapObj = document.querySelector('#india-map');
 mapObj.addEventListener('load', mapLoad);
-// console.log(mapObj);
 
 function mapLoad(){
     const map = mapObj.contentDocument;
