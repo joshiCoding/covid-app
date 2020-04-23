@@ -362,7 +362,7 @@ button {
 }
 
 .chips {
-  border: 2px solid #248C1D;
+  border: 2px solid #00A4AE;
   margin: 10px;
   padding: 5px 10px;
   border-radius: 20px;
@@ -370,8 +370,8 @@ button {
 }
 
 .chips-active {
-  background: #7CD275;
-  color: #0C5507;
+  background: #75D9E3;
+  color: #05554e;
   font-weight: 600;
 }
 
@@ -738,7 +738,7 @@ section .head {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  background: #248C1D;
+  background: #00A4AE;
   color: white;
   font-weight: 700;
 }
@@ -838,6 +838,22 @@ section .head {
   width: 100%;
   list-style: none;
   padding: 10px;
+}
+
+.statewiseData .statewise_effectedArea_stat_bar-confirmed {
+  color: #D0387D;
+}
+
+.statewiseData .statewise_effectedArea_stat_bar-active {
+  color: #05554e;
+}
+
+.statewiseData .statewise_effectedArea_stat_bar-recovered {
+  color: #0C5507;
+}
+
+.statewiseData .statewise_effectedArea_stat_bar-death {
+  color: #121212;
 }
 
 .statewiseData .statewise_effectedArea_cityStat_box {

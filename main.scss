@@ -22,15 +22,15 @@ $spacer : 10px;
 
 //4.components
 .chips{
-    border:2px solid $clr-prim;
+    border:2px solid $clr-sec;
     margin:$spacer;
     padding:$spacer/2 $spacer;
     border-radius:20px;
     text-align:center;
 }
 .chips-active{
-    background:$clr-prim-light;
-    color:$clr-prim-dark;
+    background:$clr-sec-light;
+    color:$clr-sec-dark;
     font-weight:$font-bold;
 }
 .card{
@@ -309,7 +309,7 @@ section{
         width:100%;
         padding:$spacer;
         margin:$spacer 0;
-        background:$clr-prim;
+        background:$clr-sec;
         color:white;
         font-weight:$font-bolder;
     }
@@ -389,6 +389,20 @@ section{
                     padding:$spacer;
 
                 }
+            }
+        }
+        &_stat{
+            &_bar-confirmed{
+                color:$clr-warning;
+            }
+            &_bar-active{
+                color:$clr-sec-dark;
+            }
+            &_bar-recovered{
+                color:$clr-prim-dark;
+            }
+            &_bar-death{
+                color:$clr-death;
             }
         }
 

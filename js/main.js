@@ -456,7 +456,6 @@ effectedStateName.addEventListener('blur', () =>{
  effectedStateName.addEventListener('input', () => {
     let effectedStateSearchText = effectedStateName.value ;
 
-    effectedCityhead.innerText = effectedStateSearchText;
     effectedStateSearchBox.style.display = 'block';
     let matches = Object.keys(effectedStateData).filter( st =>{
         let regex = new RegExp(`^${effectedStateSearchText}`, 'gi');
@@ -532,18 +531,6 @@ function fillEffectedCityData(data){
     }
 }
 
-// function fillEffectedStateData(data){
-//     const stateName = effectedStateName.innerText;
-//     // for(const [key, value] of Object.entries(data)){
-//     //     // console.log(`key => ${key} || value => ${value}`)
-//     //     if(key === stateName){
-//     //         console.log(Object.keys(value.districtData));
-//     //     }
-//     // }
-
-    
-    
-// }
 
 
 function getEffectedData(){
