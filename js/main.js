@@ -424,21 +424,77 @@ viewAllBtn.addEventListener('click', ()=>{
 
 
 //***** for displaying how effected is your area section
-const effectedStateName = document.querySelector('.statewise_effectedArea_stateName');
+let effectedStateData ;
+const effectedState = document.querySelector('.statewise_effectedArea_stateName');
+const effectedStateName = effectedState.querySelector('.search_box');
+const effectedSearchBox = effectedState.querySelector('.search_box_container');
 const effectedActiveNo = document.querySelector('.statewise_effectedArea_stat_bar-active h4');
 const effectedConfirmedNo = document.querySelector('.statewise_effectedArea_stat_bar-confirmed h4');
 const effectedRecoveredNo = document.querySelector('.statewise_effectedArea_stat_bar-recovered h4');
 const effectedDeathNo = document.querySelector('.statewise_effectedArea_stat_bar-death h4');
 
 
-const effectedCityBox = document.querySelector('.statewise_effectedArea_cityStat_box');
-// effectedStateName.innerText = "Delhi";
 
-let effectedStateData ;
+
+const effectedCityBox = document.querySelector('.statewise_effectedArea_cityStat_box');
+const effectedCityhead = document.querySelector('.statewise_effectedArea_cityStat_para');
+const effectedStateSearchBox = document.querySelector('.match_list');
+
+// effectedStateName.value = "Uttar Pradesh";
+
+effectedState.querySelector('.search_box_container svg').addEventListener('click', () =>{
+  effectedStateName.focus();
+});
+effectedStateName.addEventListener('focus', () =>{
+    effectedSearchBox.classList.add('search_box_container-active');
+    effectedStateName.value = '';
+})
+effectedStateName.addEventListener('blur', () =>{
+    effectedSearchBox.classList.remove('search_box_container-active');
+})
+
+ effectedStateName.addEventListener('input', () => {
+    let effectedStateSearchText = effectedStateName.value ;
+
+    effectedCityhead.innerText = effectedStateSearchText;
+    effectedStateSearchBox.style.display = 'block';
+    let matches = Object.keys(effectedStateData).filter( st =>{
+        let regex = new RegExp(`^${effectedStateSearchText}`, 'gi');
+        return st.match(regex);
+    })
+    let output = '';
+    console.log(matches);
+    matches.forEach(match => {
+        output = output + `<li class = "search-box-list">${match}</li>`;
+    })
+    if(output === ''){
+        output = output + `<li class = "search-box-list">No Such State in Database</li>`;
+    }
+    effectedStateSearchBox.innerHTML = output;
+  
+
+ })
+
+ effectedStateSearchBox.addEventListener('click', e =>{
+    effectedStateName.value = e.target.innerText;
+    effectedCityhead.innerText = `Cities effected in ${effectedStateName.value}`;
+    effectedStateSearchBox.style.display = 'none';
+    effectedSearchBox.classList.remove('search_box_container-active');
+
+
+    fillEffectedStateData(dataofapi);
+    fillEffectedCityData(effectedStateData);
+ })
+
+
+
 function fillEffectedStateData(data){
+    if(effectedStateName.value == ""){
+        effectedStateName.value = "Total";
+    }
     data.statewise.forEach( st =>{
-        if(st.state === effectedStateName.innerText){
-            console.log(st.active);
+        if(st.state === effectedStateName.value){
+            // console.log(st.active);
             effectedActiveNo.innerText = st.active;
             effectedConfirmedNo.innerText = st.confirmed;
             effectedRecoveredNo.innerText = st.recovered;
@@ -447,21 +503,25 @@ function fillEffectedStateData(data){
     });
 }
 function fillEffectedCityData(data){
+    if(effectedStateName.value == ""){
+        effectedStateName.value = "Total";
+    }
+    effectedCityhead.innerText = `Cities effected in ${effectedStateName.value}`;
     for(const [key, value] of Object.entries(data)){
-        if(key === effectedStateName.innerText){
+        if(key === effectedStateName.value){
             const temp = Object.keys(value.districtData);
-            console.log(temp);
+            // console.log(temp);
 
             let output = '';
             temp.forEach( t =>{
-                console.log('State is : ' + t );
-                output = output + `<li>${t}</li>`
+                // console.log('State is : ' + t );
+                output = output + `<li class = "statewise_effectedArea_cityStat_box_cityList">${t}</li>`
             })
 
             effectedCityBox.innerHTML = output;
            
 
-            console.log(output);
+            // console.log(output);
             
           
 
@@ -510,7 +570,7 @@ const mapDeathNo = document.querySelector('.map_statBox_stateStat-deathNo');
 function fillMapBox(data, state){
     data.statewise.forEach( st =>{
         if(st.state === state){
-            console.log(st.active);
+            // console.log(st.active);
             mapActiveNo.innerText = st.active;
             mapConfirmedNo.innerText = st.confirmed;
             mapRecoveredNo.innerText = st.recovered;

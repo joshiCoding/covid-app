@@ -62,29 +62,29 @@
     <section class="currentSituation">
         <div class="situation_head head">
             <h2 class= "heading">Current Situation</h2>
-            <p class="updated">Stats for  <br><b> 20 April,2020 <br> IST 12:00 AM</b></p>
+            <p class="updated">Stats for  <br><b> Updating...</b></p>
         </div>
         <div class="situation_body card_container">
             <div class="c1">
                 <div class="stat_confirmed card">
-                    <p class="stat_number">14271</p>
+                    <p class="stat_number">23039</p>
                     <p class="stat_name">Confirmed</p>
                     <p class="stat_change">+242</p>
                 </div>
                 <div class="stat_active card">
-                    <p class="stat_number">16432</p>
+                    <p class="stat_number">17306</p>
                     <p class="stat_name">Active</p>
                     <p class="stat_change">+242</p>
                 </div>
             </div>
             <div class="c2">
                 <div class="stat_recovered card">
-                    <p class="stat_number">125</p>
+                    <p class="stat_number">5012</p>
                     <p class="stat_name">Recovered</p>
                     <p class="stat_change">+242</p>
                 </div>
                 <div class="stat_death card">
-                    <p class="stat_number">78</p>
+                    <p class="stat_number">721</p>
                     <p class="stat_name">Death</p>
                     <p class="stat_change">+242</p>
                 </div>
@@ -132,7 +132,14 @@
             </div>
 
             <div class="statewise_effectedArea_stateStat">
-                <p class = "statewise_effectedArea_stateName">Uttar Pradesh</p>
+                <div class = "statewise_effectedArea_stateName">
+                    <!-- Uttar Pradesh -->
+                    <div class="search_box_container">
+                    <input type="text" id= 'search' placeholder = "Type your state here or choose from below" aria-label = "Search for states" class = "search_box">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 24 24" width="40"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                    </div>
+                    <div class="match_list"></div>
+                </div>
                 <div class="statewise_effectedArea_stat">
                     <div class="statewise_effectedArea_stat_bar-active stat_bar">
                         <p>Active</p>
