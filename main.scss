@@ -335,7 +335,8 @@ section{
         }
     }
     &_statBox{
-        border:2px solid lightblue;
+        background:lightblue;
+        font-weight:$font-bold;
         width:200px;
         height:200px;
         padding:2*$spacer;
