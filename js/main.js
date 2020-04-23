@@ -80,6 +80,8 @@ function getData(){
         fillCurrentSituation(data);
         fillDatewiseChart(data, 7);
         fillStatewiseChart(data, 5);
+        fillEffectedStateData(data);
+
 
        
         // console.log(dataofapi);
@@ -398,6 +400,78 @@ viewAllBtn.addEventListener('click', ()=>{
         viewAllBtn.innerText = "View All States";
     }
 })
+
+
+//***** for displaying how effected is your area section
+const effectedStateName = document.querySelector('.statewise_effectedArea_stateName');
+const effectedActiveNo = document.querySelector('.statewise_effectedArea_stat_bar-active h4');
+const effectedConfirmedNo = document.querySelector('.statewise_effectedArea_stat_bar-confirmed h4');
+const effectedRecoveredNo = document.querySelector('.statewise_effectedArea_stat_bar-recovered h4');
+const effectedDeathNo = document.querySelector('.statewise_effectedArea_stat_bar-death h4');
+
+
+const effectedCityBox = document.querySelector('.statewise_effectedArea_cityStat_box');
+// effectedStateName.innerText = "Delhi";
+
+let effectedStateData ;
+function fillEffectedStateData(data){
+    data.statewise.forEach( st =>{
+        if(st.state === effectedStateName.innerText){
+            console.log(st.active);
+            effectedActiveNo.innerText = st.active;
+            effectedConfirmedNo.innerText = st.confirmed;
+            effectedRecoveredNo.innerText = st.recovered;
+            effectedDeathNo.innerText = st.deaths;
+        }
+    });
+}
+function fillEffectedCityData(data){
+    for(const [key, value] of Object.entries(data)){
+        if(key === effectedStateName.innerText){
+            const temp = Object.keys(value.districtData);
+            console.log(temp);
+
+            let output = '';
+            temp.forEach( t =>{
+                console.log('State is : ' + t );
+                output = output + `<li>${t}</li>`
+            })
+
+            effectedCityBox.innerHTML = output;
+           
+
+            console.log(output);
+            
+          
+
+        }
+    }
+}
+
+// function fillEffectedStateData(data){
+//     const stateName = effectedStateName.innerText;
+//     // for(const [key, value] of Object.entries(data)){
+//     //     // console.log(`key => ${key} || value => ${value}`)
+//     //     if(key === stateName){
+//     //         console.log(Object.keys(value.districtData));
+//     //     }
+//     // }
+
+    
+    
+// }
+
+
+function getEffectedData(){
+    fetch('https://api.covid19india.org/state_district_wise.json')
+    .then(res => res.json())
+    .then(data => {
+        effectedStateData = data;
+        fillEffectedCityData(data);
+    })
+}
+getEffectedData();
+
 
 
 

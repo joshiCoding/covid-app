@@ -312,10 +312,10 @@ section{
         }
 
         &_cityStat{
-            &_graph{
+            &_box{
                 border:2px solid lightblue;
                 width:100%;
-                height:200px;
+                height:auto;
                
             }
         }
