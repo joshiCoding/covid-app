@@ -353,7 +353,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   background: white;
-  color: #248C1D;
+  color: #00A4AE;
 }
 
 button {
@@ -578,6 +578,10 @@ header {
   padding: 0 10px;
 }
 
+header .logo {
+  color: #248C1D;
+}
+
 header .menuBtn {
   width: 60px;
   height: 60px;
@@ -597,14 +601,14 @@ header .menuBtn .menuBar {
   width: 30px;
   height: 3px;
   position: relative;
-  background: #0C5507;
+  background: #248C1D;
 }
 
 header .menuBtn .menuBar::before, header .menuBtn .menuBar::after {
   content: '';
   width: 30px;
   height: 3px;
-  background: #0C5507;
+  background: #248C1D;
   position: absolute;
   top: -10px;
   left: 0;
@@ -666,11 +670,15 @@ section .head {
 }
 
 .currentSituation .situation_body .stat_confirmed {
-  color: red;
+  color: #D0387D;
+}
+
+.currentSituation .situation_body .stat_active {
+  color: #00A4AE;
 }
 
 .currentSituation .situation_body .stat_recovered {
-  color: #00A4AE;
+  color: #248C1D;
 }
 
 .currentSituation .situation_body .stat_death {

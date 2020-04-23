@@ -11,7 +11,7 @@
 body{
     @include font($font-regular);
     background:white;
-    color:$clr-prim;
+    color:$clr-sec;
 }
 button{
     border:none;
@@ -182,6 +182,10 @@ header{
     justify-content:space-between;
     padding:0 $spacer;
 
+    .logo{
+        color:$clr-prim;
+    }
+
     .menuBtn{
         width:60px;
         height:60px;
@@ -195,13 +199,13 @@ header{
             width:30px;
             height:3px;
             position:relative;
-            background:$clr-prim-dark;
+            background:$clr-prim;
             &::before,
             &::after{
                 content:'';
                 width:30px;
                 height:3px;
-                background:$clr-prim-dark;
+                background:$clr-prim;
                 position:absolute;
                 top:-10px;
                 left:0;
@@ -247,13 +251,16 @@ section{
             justify-content:center;
         }
         .stat_confirmed{
-            color:red;
+            color:$clr-warning;
         }
-        .stat_recovered{
+        .stat_active{
             color:$clr-sec;
         }
+        .stat_recovered{
+            color:$clr-prim;
+        }
         .stat_death{
-            color:#121212;
+            color:$clr-death;
         }
        
     }

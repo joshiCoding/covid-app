@@ -527,6 +527,9 @@ function fillEffectedCityData(data){
 
         }
     }
+    if(effectedStateName.value === "Total"){
+        effectedCityhead.innerText = `Select State above to see effected cities`;
+    }
 }
 
 // function fillEffectedStateData(data){
