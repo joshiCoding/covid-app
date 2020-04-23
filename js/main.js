@@ -211,6 +211,16 @@ const dateBegBtn = document.querySelector('.datewise_beg');
 dateLinearBtn.addEventListener('click', () =>{
     dateBarBtn.classList.remove('chips-active');
     dateLinearBtn.classList.add('chips-active');
+    let daysforData ;
+    if(dateWeekBtn.classList.contains('chips-active')){
+        daysforData = 7;
+    }
+    else if(dateMonthBtn.classList.contains('chips-active')){
+        daysforData = 30;
+    }
+    else if(dateBegBtn.classList.contains('chips-active')){
+        daysforData = dataofapi.cases_time_series.length;
+    }
 
     datewiseChart.destroy();
     datewiseChart = new Chart(datewiseCanvas, {
@@ -237,12 +247,22 @@ dateLinearBtn.addEventListener('click', () =>{
             ]
         }
     });
-    fillDatewiseChart(dataofapi, 7);
+    fillDatewiseChart(dataofapi, daysforData);
 })
 
 dateBarBtn.addEventListener('click', () =>{
     dateLinearBtn.classList.remove('chips-active');
     dateBarBtn.classList.add('chips-active');
+    let daysforData ;
+    if(dateWeekBtn.classList.contains('chips-active')){
+        daysforData = 7;
+    }
+    else if(dateMonthBtn.classList.contains('chips-active')){
+        daysforData = 30;
+    }
+    else if(dateBegBtn.classList.contains('chips-active')){
+        daysforData = dataofapi.cases_time_series.length;
+    }
 
 
     datewiseChart.destroy();
@@ -270,7 +290,7 @@ dateBarBtn.addEventListener('click', () =>{
             ]
         }
     });
-    fillDatewiseChart(dataofapi, 7);
+    fillDatewiseChart(dataofapi, daysforData);
 });
 
 
