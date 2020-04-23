@@ -369,7 +369,7 @@ function fillStatewiseChart(data,noOfState){
     })
 
     states.forEach(cases =>{
-        statewiseChart.data.datasets[2].data.push( cases.deceased);
+        statewiseChart.data.datasets[2].data.push( cases.deaths);
     })
 
     
