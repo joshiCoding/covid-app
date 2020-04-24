@@ -548,6 +548,8 @@ button {
   transition: -webkit-transform 250ms ease-out;
   transition: transform 250ms ease-out;
   transition: transform 250ms ease-out, -webkit-transform 250ms ease-out;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 .page-out {
@@ -560,8 +562,6 @@ button {
   transition: -webkit-transform 250ms ease-out;
   transition: transform 250ms ease-out;
   transition: transform 250ms ease-out, -webkit-transform 250ms ease-out;
-  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
-          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
 }
 
@@ -576,6 +576,14 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: white;
+  z-index: 100;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
 }
 
 header .logo {
@@ -641,6 +649,22 @@ section .head {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+}
+
+.hero_section {
+  border: 2px solid #D0387D;
+  font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
 }
 
 .currentSituation .situation_body {
@@ -840,20 +864,24 @@ section .head {
   padding: 10px;
 }
 
+.statewiseData .statewise_effectedArea_stat {
+  color: white;
+}
+
 .statewiseData .statewise_effectedArea_stat_bar-confirmed {
-  color: #D0387D;
+  background: #D0387D;
 }
 
 .statewiseData .statewise_effectedArea_stat_bar-active {
-  color: #05554e;
+  background: #00A4AE;
 }
 
 .statewiseData .statewise_effectedArea_stat_bar-recovered {
-  color: #0C5507;
+  background: #248C1D;
 }
 
 .statewiseData .statewise_effectedArea_stat_bar-death {
-  color: #121212;
+  background: #777;
 }
 
 .statewiseData .statewise_effectedArea_cityStat_box {

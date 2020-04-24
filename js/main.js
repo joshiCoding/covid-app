@@ -28,28 +28,32 @@ const menuBtn = document.querySelector('.menuBtn');
 const menuBtnClose = document.querySelector('.menuBtn-close');
 
 const mainNav = document.querySelector('.mainNav');
-// mainNav.style.zIndex = "-1";
 
+// //testing the position feature
+// const indiaView = document.querySelector('#india-view');
+// let newLinkPos = indiaView.getBoundingClientRect().top ;
+// document.addEventListener('load', () =>{
+//     window.scrollTo(0,newLinkPos);
+// })
 
 // console.log(menuBtnClose);
 menuBtn.addEventListener('click', e =>{
+
     const page = document.querySelector('.page');
     page.classList.toggle("page-out");
-    // console.log('inside btn');
     if(page.classList.contains("page-out")){
         mainNav.style.zIndex = "0";
         mainNav.style.pointerEvents = "auto";
-        // console.log("i am here in if");
     }
     else{
         mainNav.style.zIndex = "-1";
-        // console.log("i am here in else");
-
-
     }
+
 })
 
-menuBtnClose.addEventListener('click', e =>{
+menuBtnClose.addEventListener('click', menuClose);
+
+function menuClose(){
     const page = document.querySelector('.page');
     const mainNav = document.querySelector('.mainNav');
 
@@ -63,12 +67,22 @@ menuBtnClose.addEventListener('click', e =>{
     else{
         mainNav.style.zIndex = "-1";
         // console.log("i am here in else");
-
-
     }
-   
-})
+}
 
+//experimental use of window scroll
+const linkToIndiaView = document.querySelector('.linkto_indiaView');
+linkToIndiaView.addEventListener('click',e =>{
+    const page = document.querySelector('.page');
+    const indiaView = document.querySelector('#india-view');
+
+    menuClose();
+    let newLinkPos = indiaView.getBoundingClientRect().top ;
+    window.scrollTo(0,newLinkPos);
+    console.log(newLinkPos);
+    console.log(window.scrollTo(0,newLinkPos));
+
+})
 
 // using the fetch api here
 function getData(){
@@ -433,50 +447,54 @@ const effectedConfirmedNo = document.querySelector('.statewise_effectedArea_stat
 const effectedRecoveredNo = document.querySelector('.statewise_effectedArea_stat_bar-recovered h4');
 const effectedDeathNo = document.querySelector('.statewise_effectedArea_stat_bar-death h4');
 
-
-
-
 const effectedCityBox = document.querySelector('.statewise_effectedArea_cityStat_box');
 const effectedCityhead = document.querySelector('.statewise_effectedArea_cityStat_para');
 const effectedStateSearchBox = document.querySelector('.match_list');
 
+let effectedStateSearchText  ;
 // effectedStateName.value = "Uttar Pradesh";
 
 effectedState.querySelector('.search_box_container svg').addEventListener('click', () =>{
   effectedStateName.focus();
 });
+
 effectedStateName.addEventListener('focus', () =>{
     effectedSearchBox.classList.add('search_box_container-active');
-    effectedStateName.value = '';
+    effectedStateSearchText = '';
+    effectedStateName.value = effectedStateSearchText;
 })
+
 effectedStateName.addEventListener('blur', () =>{
     effectedSearchBox.classList.remove('search_box_container-active');
 })
 
- effectedStateName.addEventListener('input', () => {
-    let effectedStateSearchText = effectedStateName.value ;
+effectedStateName.addEventListener('input', () => {
+    effectedStateSearchText = effectedStateName.value ;
 
     effectedStateSearchBox.style.display = 'block';
+
     let matches = Object.keys(effectedStateData).filter( st =>{
         let regex = new RegExp(`^${effectedStateSearchText}`, 'gi');
         return st.match(regex);
-    })
+    });
+
     let output = '';
-    console.log(matches);
     matches.forEach(match => {
         output = output + `<li class = "search-box-list">${match}</li>`;
-    })
+    });
+
     if(output === ''){
         output = output + `<li class = "search-box-list">No Such State in Database</li>`;
     }
+
     effectedStateSearchBox.innerHTML = output;
-  
 
  })
 
  effectedStateSearchBox.addEventListener('click', e =>{
-    effectedStateName.value = e.target.innerText;
-    effectedCityhead.innerText = `Cities effected in ${effectedStateName.value}`;
+    effectedStateSearchText =e.target.innerText;
+    effectedStateName.value = effectedStateSearchText;
+    effectedCityhead.innerText = `Cities effected in ${effectedStateSearchText}`;
     effectedStateSearchBox.style.display = 'none';
     effectedSearchBox.classList.remove('search_box_container-active');
 
@@ -489,10 +507,11 @@ effectedStateName.addEventListener('blur', () =>{
 
 function fillEffectedStateData(data){
     if(effectedStateName.value == ""){
-        effectedStateName.value = "Total";
+        effectedStateSearchText = "Total";
     }
+
     data.statewise.forEach( st =>{
-        if(st.state === effectedStateName.value){
+        if(st.state === effectedStateSearchText){
             // console.log(st.active);
             effectedActiveNo.innerText = st.active;
             effectedConfirmedNo.innerText = st.confirmed;
@@ -501,13 +520,14 @@ function fillEffectedStateData(data){
         }
     });
 }
+
 function fillEffectedCityData(data){
     if(effectedStateName.value == ""){
-        effectedStateName.value = "Total";
+        effectedStateSearchText = "Total";
     }
-    effectedCityhead.innerText = `Cities effected in ${effectedStateName.value}`;
+
     for(const [key, value] of Object.entries(data)){
-        if(key === effectedStateName.value){
+        if(key === effectedStateSearchText){
             const temp = Object.keys(value.districtData);
             // console.log(temp);
 
@@ -526,7 +546,9 @@ function fillEffectedCityData(data){
 
         }
     }
-    if(effectedStateName.value === "Total"){
+    effectedCityhead.innerText = `Cities effected in ${effectedStateSearchText}`;
+
+    if(effectedStateName.value === ""){
         effectedCityhead.innerText = `Select State above to see effected cities`;
     }
 }
