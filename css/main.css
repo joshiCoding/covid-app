@@ -399,16 +399,16 @@ button {
 }
 
 .card p {
-  font-size: 1rem;
-  margin: 10px;
+  font-size: 16px;
+  margin: 5px;
 }
 
 .card .stat_number {
-  font-size: 2rem;
+  font-size: 32px;
 }
 
 .card .stat_name {
-  font-size: 1.3rem;
+  font-size: 24px;
 }
 
 .stat_bar {
@@ -653,7 +653,7 @@ section .head {
 
 .hero_section {
   border: 2px solid #D0387D;
-  font-size: 2rem;
+  font-size: 34px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -665,6 +665,10 @@ section .head {
       -ms-flex-align: center;
           align-items: center;
   margin: 0;
+}
+
+.currentSituation {
+  font-size: 16px;
 }
 
 .currentSituation .situation_body {
@@ -888,6 +892,26 @@ section .head {
   border: 2px solid lightblue;
   width: 100%;
   height: auto;
+}
+
+.statewiseData .statewise_effectedArea_cityStat_box table {
+  border: 2px solid #05554e;
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.statewiseData .statewise_effectedArea_cityStat_box table tr {
+  text-align: left;
+  border: 2px solid #05554e;
+  overflow: hidden;
+}
+
+.statewiseData .statewise_effectedArea_cityStat_box table tr td, .statewiseData .statewise_effectedArea_cityStat_box table tr th {
+  border: 2px solid #05554e;
+  text-align: left;
+  padding: 10px;
+  overflow: hidden;
 }
 
 .statewiseData .statewise_effectedArea_cityStat_box_cityList {

@@ -528,16 +528,21 @@ function fillEffectedCityData(data){
 
     for(const [key, value] of Object.entries(data)){
         if(key === effectedStateSearchText){
-            const temp = Object.keys(value.districtData);
-            // console.log(temp);
+            const temp = Object.entries(value.districtData);
+            console.log(temp);
 
             let output = '';
             temp.forEach( t =>{
-                // console.log('State is : ' + t );
-                output = output + `<li class = "statewise_effectedArea_cityStat_box_cityList">${t}</li>`
+                // output = output + `<li class = "statewise_effectedArea_cityStat_box_cityList">${t}</li>`
+                output = output + 
+                `<tr>
+                    <td>${t[0]}</td>
+                    <td>${t[1].confirmed}</td>
+                </tr>`
+                  
             })
-
-            effectedCityBox.innerHTML = output;
+            const table = effectedCityBox.querySelector('table');
+            table.innerHTML = table.innerHTML + output;
            
 
             // console.log(output);
