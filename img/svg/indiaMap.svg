@@ -11,6 +11,27 @@
 >
 <style>
 @import url("/css/main.css");
+#indiaMap-svg{
+    height:300;
+    width:80px;
+    stroke : $clr-map-border;
+    stroke-width:1px;
+    opacity:0.5;
+
+}
+
+#indiaMap-svg  path:hover,
+#indiaMap-svg  path:focus{
+    stroke-width:3px;
+    opacity:0.7;
+ }
+
+ .indiaMap_path-active{
+    stroke-width:3px;
+    opacity:1;
+    fill:red;
+ }
+      
 </style>
 
 
