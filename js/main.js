@@ -28,6 +28,7 @@ const menuBtn = document.querySelector('.menuBtn');
 const menuBtnClose = document.querySelector('.menuBtn-close');
 
 const mainNav = document.querySelector('.mainNav');
+const page = document.querySelector('.page');
 
 // //testing the position feature
 // const indiaView = document.querySelector('#india-view');
@@ -39,7 +40,6 @@ const mainNav = document.querySelector('.mainNav');
 // console.log(menuBtnClose);
 menuBtn.addEventListener('click', e =>{
 
-    const page = document.querySelector('.page');
     page.classList.toggle("page-out");
     if(page.classList.contains("page-out")){
         mainNav.style.zIndex = "0";
@@ -54,8 +54,6 @@ menuBtn.addEventListener('click', e =>{
 menuBtnClose.addEventListener('click', menuClose);
 
 function menuClose(){
-    const page = document.querySelector('.page');
-    const mainNav = document.querySelector('.mainNav');
 
     page.classList.toggle("page-out");
     // console.log('inside btn');
@@ -83,8 +81,21 @@ linkToIndiaView.addEventListener('click',e =>{
     console.log(window.scrollTo(0,newLinkPos));
 
 })
+const header = document.querySelector('header');
+//testing for scroll up navshow feature (this feature is not needed i think)
+// window.addEventListener('scroll', () =>{
+//     header.classList.add('header-fixed');
+//     header.style.background = "red";
+//     // console.log('current scroll' + window.pageYOffset)
+// }) 
 
-// using the fetch api here
+//styling for sticky nav bottom
+const plusBtn = document.querySelector('.plus_btn');
+plusBtn.addEventListener('click',()=>{
+    plusBtn.classList.toggle('plus_btn-close');
+})
+
+//********************* using the fetch api here
 function getData(){
      fetch('https://api.covid19india.org/data.json')
     .then(res => res.json())
@@ -604,8 +615,16 @@ function mapLoad(){
     const svgIndia = map.getElementById('indiaMap-svg');
 
     svgIndia.addEventListener('click',e =>{
-        // console.log((e.target).getAttribute('title'));
-        // e.target.style.strokeWidth = "3px";
+
+        let childofSvg = svgIndia.querySelectorAll('path');
+        childofSvg.forEach(ch =>{
+             ch.classList.remove('indiaMap_path-active');
+        });
+
+        if(e.target.getAttribute('title') !== null){
+            e.target.classList.add('indiaMap_path-active');
+        }
+        console.log(e.target);
         state.innerText = e.target.getAttribute('title');
         if(e.target.getAttribute('title') === null){
             state.innerText = "Total";
