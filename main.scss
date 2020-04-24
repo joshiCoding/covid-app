@@ -28,6 +28,7 @@ $default-font:16px;
     padding:$spacer/2 $spacer;
     border-radius:20px;
     text-align:center;
+    cursor: pointer;
 }
 .chips-active{
     background:$clr-sec-light;
