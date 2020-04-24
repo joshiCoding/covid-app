@@ -390,6 +390,7 @@ button {
   padding: 5px 10px;
   border-radius: 20px;
   text-align: center;
+  cursor: pointer;
 }
 
 .chips-active {
@@ -660,6 +661,7 @@ section .head {
   -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
   background: white;
+  display: none;
 }
 
 .sticky_nav .plus_btn {
@@ -751,6 +753,15 @@ section .head {
   width: 2px;
   height: calc(100% - 6px);
   background: #323232;
+}
+
+.sticky_nav_menu:first-child {
+  border: 5px solid red;
+}
+
+.sticky_nav_menu:first-child li::after {
+  width: 0;
+  background: transparent;
 }
 
 .hero_section {

@@ -81,7 +81,7 @@ linkToIndiaView.addEventListener('click',e =>{
     console.log(window.scrollTo(0,newLinkPos));
 
 })
-const header = document.querySelector('header');
+
 //testing for scroll up navshow feature (this feature is not needed i think)
 // window.addEventListener('scroll', () =>{
 //     header.classList.add('header-fixed');
@@ -90,10 +90,10 @@ const header = document.querySelector('header');
 // }) 
 
 //styling for sticky nav bottom
-const plusBtn = document.querySelector('.plus_btn');
-plusBtn.addEventListener('click',()=>{
-    plusBtn.classList.toggle('plus_btn-close');
-})
+// const plusBtn = document.querySelector('.plus_btn');
+// plusBtn.addEventListener('click',()=>{
+//     plusBtn.classList.toggle('plus_btn-close');
+// })
 
 //********************* using the fetch api here
 function getData(){
