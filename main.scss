@@ -173,6 +173,10 @@ $default-font:16px;
     border-radius:15px;
 }
 
+.box{
+    // border:2px solid red;
+    background:none;
+}
 
 //5.layout
 
@@ -484,14 +488,15 @@ section{
     &_statBox{
         background:lightblue;
         font-weight:$font-bold;
-        width:200px;
-        height:200px;
-        padding:2*$spacer;
+        width:90%;
+        height:auto;
+        margin:2*$spacer;
 
         display:flex;
         flex-direction:column;
         align-items:center;
-        align-self:flex-end;
+        align-self:center;
+
         p{
             margin:0;
         }
@@ -499,17 +504,51 @@ section{
             width:100%;
             padding:$spacer;
             text-align:center;
+            font-size: 2*$default-font;
           
         }
         &_stateStat{
             width:100%;
+            height:100%;
+            display:flex;
+            font-weight:bold;
+            
+
             .map_stateBox_box{
                 display:flex;
                 flex-direction:row;
                 justify-content:space-between;
-                padding:$spacer/2;
+                padding:$spacer;
                 overflow:hidden;
+                display:flex;
+                flex-direction:column;
+                width:100%;
+                text-align:center;
+                font-size:$default-font;
+                border:2px solid lightblue;
+                p{
+                    padding:$spacer 0;
+                }
+
             }
+            .map_statBox_stateStat-confirmed{
+                color:$clr-warning;
+                background:white;
+
+            }
+            .map_statBox_stateStat-active{
+                color:$clr-sec;
+                background:white;
+
+            } .map_statBox_stateStat-recovered{
+                color:$clr-prim;
+                background:white;
+
+            } .map_statBox_stateStat-death{
+                color:$clr-death;
+                background:white;
+            }
+            
         }
  
     }
@@ -526,21 +565,37 @@ section{
     }
 }
 
-#india-map svg{
-    height:300px;
+// #india-map svg{
+//     height:300px;
+//     width:80px;
+//     stroke : $clr-sec;
+//     stroke-width:1px;
+//     // height: "695.70178";
+//     // width :"611.85999";
+//     // view-box : "68.184010 37.084109 97.418146 6.753659"
+
+//     path:hover,
+//     path:focus{
+//     stroke-width:3px;
+//  }
+
+// }
+#indiaMap-svg{
+    height:300;
     width:80px;
-    stroke : $clr-sec;
+    stroke : $clr-map-border;
     stroke-width:1px;
-    // height: "695.70178";
-    // width :"611.85999";
-    // view-box : "68.184010 37.084109 97.418146 6.753659"
-
-    path:hover,
-    path:focus{
-    stroke-width:3px;
- }
-
 }
+#indiaMap-svg path{
+    opacity:0.5;
+    fill:black;
+}
+#indiaMap-svg  path:hover,
+#indiaMap-svg  path:focus{
+    stroke-width:3px;
+    opacity:1;
+    fill:black;
+ }
       
 
  

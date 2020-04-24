@@ -10,16 +10,7 @@
    viewBox = "250 0 97.418146 996.753659"
 >
 <style>
-#indiaMap-svg{
-    height:300;
-    width:80px;
-    stroke : #00A4AE;
-    stroke-width:1px;
-}
-#indiaMap-svg  path:hover,
-#indiaMap-svg  path:focus{
-    stroke-width:3px;
- }
+@import url("/css/main.css");
 </style>
 
 

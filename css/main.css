@@ -565,6 +565,10 @@ button {
   border-radius: 15px;
 }
 
+.box {
+  background: none;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -936,9 +940,9 @@ section .head {
 .map_statBox {
   background: lightblue;
   font-weight: 600;
-  width: 200px;
-  height: 200px;
-  padding: 20px;
+  width: 90%;
+  height: auto;
+  margin: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -949,8 +953,8 @@ section .head {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 
 .map_statBox p {
@@ -961,10 +965,16 @@ section .head {
   width: 100%;
   padding: 10px;
   text-align: center;
+  font-size: 32px;
 }
 
 .map_statBox_stateStat {
   width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
 }
 
 .map_statBox_stateStat .map_stateBox_box {
@@ -978,8 +988,39 @@ section .head {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 5px;
+  padding: 10px;
   overflow: hidden;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  border: 2px solid lightblue;
+}
+
+.map_statBox_stateStat .map_stateBox_box p {
+  padding: 10px 0;
+}
+
+.map_statBox_stateStat .map_statBox_stateStat-confirmed {
+  color: #D0387D;
+  background: white;
+}
+
+.map_statBox_stateStat .map_statBox_stateStat-active {
+  color: #00A4AE;
+  background: white;
+}
+
+.map_statBox_stateStat .map_statBox_stateStat-recovered {
+  color: #248C1D;
+  background: white;
+}
+
+.map_statBox_stateStat .map_statBox_stateStat-death {
+  color: #121212;
+  background: white;
 }
 
 .map_mapSvg {
@@ -998,15 +1039,22 @@ section .head {
           justify-content: center;
 }
 
-#india-map svg {
-  height: 300px;
+#indiaMap-svg {
+  height: 300;
   width: 80px;
-  stroke: #00A4AE;
+  stroke: #28EDFA;
   stroke-width: 1px;
 }
 
-#india-map svg path:hover,
-#india-map svg path:focus {
+#indiaMap-svg path {
+  opacity: 0.5;
+  fill: black;
+}
+
+#indiaMap-svg path:hover,
+#indiaMap-svg path:focus {
   stroke-width: 3px;
+  opacity: 1;
+  fill: black;
 }
 /*# sourceMappingURL=main.css.map */
