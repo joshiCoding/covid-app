@@ -10,11 +10,11 @@
    viewBox = "250 0 97.418146 996.753659"
 >
 <style>
-@import url("/css/main.css");
+<!-- @import url("/css/main.css"); -->
 #indiaMap-svg{
     height:300;
     width:80px;
-    stroke : $clr-map-border;
+    stroke : #28EDFA;
     stroke-width:1px;
     opacity:0.5;
 
