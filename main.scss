@@ -835,7 +835,7 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                     padding:0;
                     &_body{
                         &_districts{
-                            border:2px solid red;
+                            border:2px solid $clr-se-light;
                             height:auto;
                             .district{
                                 width:auto;

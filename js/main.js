@@ -884,7 +884,7 @@ statedateLinearBtn.addEventListener('click', () =>{
             ]
         }
     });
-    fillStateDatewiseChart(effectedStateDatewiseData, daysforData);
+    fillStateDatewiseChart(effectedStateDatewiseData, daysforData, effectedStateSearchCode);
 })
 
 statedateBarBtn.addEventListener('click', () =>{
@@ -927,7 +927,7 @@ statedateBarBtn.addEventListener('click', () =>{
             ]
         }
     });
-    fillStateDatewiseChart(effectedStateDatewiseData, daysforData);
+    fillStateDatewiseChart(effectedStateDatewiseData, daysforData, effectedStateSearchCode);
 });
 
 
@@ -936,21 +936,21 @@ statedateWeekBtn.addEventListener('click', () =>{
     statedateMonthBtn.classList.remove('chips-active');
     statedateBegBtn.classList.remove('chips-active');
 
-    fillStateDatewiseChart(effectedStateDatewiseData, 7);
+    fillStateDatewiseChart(effectedStateDatewiseData, 7, effectedStateSearchCode);
 });
 statedateMonthBtn.addEventListener('click',() =>{
     statedateWeekBtn.classList.remove('chips-active');
     statedateMonthBtn.classList.add('chips-active');
     statedateBegBtn.classList.remove('chips-active');
 
-    fillStateDatewiseChart(effectedStateDatewiseData , 30);
+    fillStateDatewiseChart(effectedStateDatewiseData , 30, effectedStateSearchCode);
 })
 statedateBegBtn.addEventListener('click', () =>{
     statedateWeekBtn.classList.remove('chips-active');
     statedateMonthBtn.classList.remove('chips-active');
     statedateBegBtn.classList.add('chips-active');
 
-    fillStateDatewiseChart(effectedStateDatewiseData , effectedStateDatewiseData.states_daily.length);
+    fillStateDatewiseChart(effectedStateDatewiseData , effectedStateDatewiseData.states_daily.length, effectedStateSearchCode);
 })
 
 
