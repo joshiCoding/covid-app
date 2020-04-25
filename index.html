@@ -21,6 +21,32 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <style>
         /* content preloader style */
+        .preloading_page{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100vw;
+            height:100vh;
+            z-index:1000;
+            background:lightblue;
+            border:2px solid red;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            display:none;
+        }
+        .loader{
+            display:flex;
+            height:40px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            align-items:center;
+            transform:translate(-50%,-50%);
+        }
+        .loader .obj{
+            background:#05554e;
+        }
         .loading{
             display:flex;
             height:20px;
@@ -70,8 +96,18 @@
 </head>
 <body>
     <!-- preloader -->
-
-    <!-- content preloader -->
+        <div class="preloading_page">
+            <div class="loader">
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+                <div class="obj"></div>
+            </div>
+        </div>
        
     <!-- header -->
     <nav class="mainNav">

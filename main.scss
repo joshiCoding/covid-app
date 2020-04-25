@@ -652,7 +652,6 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
             }
         
             .match_list{
-                // width:calc(100% - 40px);
                 width:100%;
                 max-height:300px;
                 overflow:auto;
@@ -660,7 +659,6 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                 position:absolute;
                 top:calc(100% + 5px);
                 // left:2*$spacer;
-                border:2px solid red;
                 left:0;
                 background:$clr-sec-lighter;
                 z-index:1;
@@ -835,7 +833,7 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                     padding:0;
                     &_body{
                         &_districts{
-                            border:2px solid $clr-se-light;
+                            border:2px solid $clr-sec-light;
                             height:auto;
                             .district{
                                 width:auto;

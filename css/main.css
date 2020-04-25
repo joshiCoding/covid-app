@@ -1129,7 +1129,6 @@ footer p {
   border-top: none;
   position: absolute;
   top: calc(100% + 5px);
-  border: 2px solid red;
   left: 0;
   background: #D9F6F8;
   z-index: 1;
@@ -1338,7 +1337,7 @@ footer p {
 }
 
 .searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districts {
-  border: 2px solid #00A4AE;
+  border: 2px solid #75D9E3;
   height: auto;
 }
 

@@ -23,6 +23,11 @@ const fontClrSec = '#089099';
 let dataofapi ;
 
 //preloader script
+ //main preloader here
+//  const loader = document.querySelector('.loader');
+//  document.addEventListener('load',()=>{
+//      loader.style.display = 'none';
+//  })
 const loading = document.querySelectorAll('.loading');
 
 
