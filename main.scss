@@ -347,7 +347,10 @@ section{
 
 
 .hero_section{
-    border:2px solid $clr-warning;
+      background: #2DBCCE;
+background: -moz-linear-gradient(left, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
+background: -webkit-linear-gradient(left, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
+background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
     font-size:34px;
     display:flex;
     text-align:center;
