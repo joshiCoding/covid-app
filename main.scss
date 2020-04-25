@@ -253,6 +253,19 @@ section{
 
    
 }
+footer{
+    width:100%;
+    background:white;
+    height:500px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    p{
+        margin:2*$spacer;
+        font-size:1.2*$default-font;
+    }
+}
 
 
 //6. Page Sections
@@ -686,7 +699,7 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
         }
 
         &_cityStat{
-            height:500px;
+            height:auto;
             &_box{
                 border:2px solid lightblue;
                 width:100%;
@@ -724,6 +737,10 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                 display:none;
             }
             .state_template{
+                margin:0;
+                background:$clr-sec-lighter;
+                display:none;
+
                 .state_statBox{
                     background:lightblue;
                     font-weight:$font-bold;
@@ -811,7 +828,172 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                         overflow:hidden;
                     }
                 }
+                .state_districtNames{
+                    background:$clr-sec-lighter;
+                    width:100%;
+                    margin:0;
+                    padding:0;
+                    &_body{
+                        &_districts{
+                            border:2px solid red;
+                            height:auto;
+                            .district{
+                                width:auto;
+                                display:inline-block;
+                            }
+                        }
+                        &_districtInfo{
+                            .district_statBox{
+                                background:lightblue;
+                                font-weight:$font-bold;
+                                width:100%;
+                                height:auto;
+                                margin:2*$spacer 0;
+                        
+                                display:flex;
+                                flex-direction:column;
+                                align-items:center;
+                                align-self:center;
+                        
+                                p{
+                                    margin:0;
+                                }
+                                &_districtName{
+                                    width:100%;
+                                    padding:$spacer;
+                                    text-align:center;
+                                    font-size: 2*$default-font;
+                                  
+                                }
+                                &_districtStat{
+                                    width:100%;
+                                    height:100%;
+                                    display:flex;
+                                    font-weight:bold;
+                                    
+                        
+                                    .district_statBox_box{
+                                        display:flex;
+                                        flex-direction:row;
+                                        justify-content:space-between;
+                                        padding:$spacer;
+                                        overflow:hidden;
+                                        display:flex;
+                                        flex-direction:column;
+                                        width:100%;
+                                        text-align:center;
+                                        font-size:$default-font - 2px;
+                                        border:2px solid lightblue;
+                                        background:$clr-sec-lighter;
+                                        p{
+                                            padding:$spacer 0;
+                                        }
+                        
+                                    }
+                                    .district_statBox_districtStat-confirmed{
+                                        color:$clr-warning;
+                        
+                                    }
+                                    .district_statBox_disctrictStat-active{
+                                        color:$clr-sec;
+                        
+                                    }
+                                     .district_statBox_districtStat-recovered{
+                                        color:$clr-prim;
+                        
+                                    }
+                                     .district_statBox_districtStat-death{
+                                        color:$clr-death;
+                                    }
+                                    
+                                }
+                         
+                            }
+                        }
+                        
+                    }
+                }
                
+            }
+            .district_template{
+                display:none;
+                .state_distNames_body_distInfo{
+                    .dist_statBox{
+                        background:lightblue;
+                        font-weight:$font-bold;
+                        width:100%;
+                        height:auto;
+                        margin:2*$spacer 0;
+                
+                        display:flex;
+                        flex-direction:column;
+                        align-items:center;
+                        align-self:center;
+                
+                        p{
+                            margin:0;
+                        }
+                        &_distName{
+                            width:100%;
+                            padding:$spacer;
+                            text-align:center;
+                            font-size: 2*$default-font;
+                          
+                        }
+                        &_distStat{
+                            width:100%;
+                            height:100%;
+                            display:flex;
+                            font-weight:bold;
+                            
+                
+                            .dist_statBox_box{
+                                display:flex;
+                                flex-direction:row;
+                                justify-content:space-between;
+                                padding:$spacer;
+                                overflow:hidden;
+                                display:flex;
+                                flex-direction:column;
+                                width:100%;
+                                text-align:center;
+                                font-size:$default-font - 2px;
+                                border:2px solid lightblue;
+                                background:$clr-sec-lighter;
+                                p{
+                                    padding:$spacer 0;
+                                }
+                
+                            }
+                            .dist_statBox_distStat-confirmed{
+                                color:$clr-warning;
+                
+                            }
+                            .dist_statBox_disctStat-active{
+                                color:$clr-sec;
+                
+                            }
+                             .dist_statBox_distStat-recovered{
+                                color:$clr-prim;
+                
+                            }
+                             .dist_statBox_distStat-death{
+                                color:$clr-death;
+                            }
+                            
+                        }
+                 
+                    }
+                }
+                .state_viewBtn{
+                    width:100%;
+                    padding:$spacer;
+                    margin:$spacer 0;
+                    background:$clr-sec;
+                    color:white;
+                    font-weight:$font-bolder;
+                }
+                
             }
         }
     }

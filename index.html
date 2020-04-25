@@ -31,9 +31,8 @@
         </button>
         
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#" class="linkto_indiaView">India Map</a></li>
-                <li><a href="#">World View</a></li>
+                <li><a href="https://github.com/joshiCoding/covid-app">Source Code</a></li>
+                <li><a href="https://api.covid19india.org">View Mother API</a></li>
                  <li><a href="https://www.pmcares.gov.in/en/" target="_blank">Donate to PM fund</a></li>
                 <li><a href="https://www.mygov.in/covid-19/?cbps=1" target="_blank">Get Official Help</a></li>
                 <li><a href="#">About Us and App</a></li>
@@ -269,6 +268,144 @@
                             <div class="state_datewise_beg chips">Beginning</div>
                         </div>
                     </div>
+                    <div class="state_districtNames">
+                        <div class="state_districtNames_head">
+                            <h2 class="state_districtNames_head_text"> District Effected in Your city</h2>
+                        </div>
+                        <div class="state_districtNames_body">
+                            <div class="state_districtNames_body_districts"> 
+                                <div class="district chips">Agra</div>
+                                <div class="district chips">Kanpur</div>
+                                <div class="district chips">Moradabad</div>
+                                <div class="district chips">Fareedabad</div>
+                                <div class="district chips">Amroha</div>
+                                <div class="district chips">Bijnor</div>
+                            </div>
+                            <div class="state_districtNames_body_districtInfo">
+                                <div class="district_statBox ">
+                                    <p class="district_statBox_districtName">Total</p>
+                                    <div class="district_statBox_districtStat">
+                                        <div class="district_statBox_districtStat-confirmed district_statBox_box">
+                                            <p>Confirmed</p> <p class="district_statBox_districtStat-confirmedNo">422</p>
+                        
+                                        </div>
+                                        <div class="district_statBox_districtStat-active district_statBox_box">   
+                                            <p>Active</p> <p class="district_statBox_districtStat-activeNo">432</p>
+                                        </div>
+                                        
+                                        <div class="district_statBox_districtStat-recovered district_statBox_box">
+                                            <p>Recovered</p> <p class="district_statBox_districtStat-recoveredNo">242</p>
+                                        </div>
+                                        <div class="district_statBox_districtStat-death district_statBox_box">
+                                            <p>Death</p> <p class="district_statBox_districtStat-deathNo">44</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="district_template">
+                    <div class="state_distNames_body_distInfo">
+                        <div class="dist_statBox ">
+                            <p class="dist_statBox_distName">Total</p>
+                            <div class="dist_statBox_distStat">
+                                <div class="dist_statBox_distStat-confirmed dist_statBox_box">
+                                    <p>Confirmed</p> <p class="dist_statBox_distStat-confirmedNo">422</p>
+                
+                                </div>
+                                <div class="dist_statBox_distStat-active dist_statBox_box">   
+                                    <p>Active</p> <p class="dist_statBox_distStat-activeNo">432</p>
+                                </div>
+                                
+                                <div class="dist_statBox_distStat-recovered dist_statBox_box">
+                                    <p>Recovered</p> <p class="dist_statBox_distStat-recoveredNo">242</p>
+                                </div>
+                                <div class="dist_statBox_distStat-death dist_statBox_box">
+                                    <p>Death</p> <p class="dist_statBox_distStat-deathNo">44</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <button class="state_viewBtn">View All States</button> -->
+                </div>
+
+                <div class="state_template">
+                    <div class="state_statBox ">
+                        <p class="state_statBox_stateName">Total</p>
+                        <div class="state_statBox_stateStat">
+                            <div class="state_statBox_stateStat-confirmed state_stateBox_box">
+                                <p>Confirmed</p> <p class="state_statBox_stateStat-confirmedNo">422</p>
+            
+                            </div>
+                            <div class="state_statBox_stateStat-active state_stateBox_box">   
+                                <p>Active</p> <p class="state_statBox_stateStat-activeNo">432</p>
+                            </div>
+                            
+                            <div class="state_statBox_stateStat-recovered state_stateBox_box">
+                                <p>Recovered</p> <p class="state_statBox_stateStat-recoveredNo">242</p>
+                            </div>
+                            <div class="state_statBox_stateStat-death state_stateBox_box">
+                                <p>Death</p> <p class="state_statBox_stateStat-deathNo">44</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="state_datewise">
+                        <div class="state_datewise_head">
+                            <h2> State Date-wise Data</h2>
+                        </div>
+                        <div class="state_datewise_chips state_datewise_chips-left">
+                            <div class="state_datewise_linear chips chips-active">Line Graph</div>
+                            <div class="state_datewise_bar chips">Bar Graph</div>
+                        </div>
+                
+                        <div class="state_datewise_graph">
+                            <canvas id="state_datewise_graph_canvas"></canvas>
+                        </div>
+                
+                        <div class="state_datewise_chips datewise_chips-right">
+                            <div class="state_datewise_week chips chips-active">Last Week</div>
+                            <div class="state_datewise_month chips">Last Month</div>
+                            <div class="state_datewise_beg chips">Beginning</div>
+                        </div>
+                    </div>
+                    <div class="state_districtNames">
+                        <div class="state_districtNames_head">
+                            <h2 class="state_districtNames_head_text"> District Effected in Your city</h2>
+                        </div>
+                        <div class="state_districtNames_body">
+                            <div class="state_districtNames_body_districts"> 
+                                <div class="district chips">Agra</div>
+                                <div class="district chips">Kanpur</div>
+                                <div class="district chips">Moradabad</div>
+                                <div class="district chips">Fareedabad</div>
+                                <div class="district chips">Amroha</div>
+                                <div class="district chips">Bijnor</div>
+                            </div>
+                            <div class="state_districtNames_body_districtInfo">
+                                <div class="district_statBox ">
+                                    <p class="district_statBox_districtName">Total</p>
+                                    <div class="district_statBox_districtStat">
+                                        <div class="district_statBox_districtStat-confirmed district_statBox_box">
+                                            <p>Confirmed</p> <p class="district_statBox_districtStat-confirmedNo">422</p>
+                        
+                                        </div>
+                                        <div class="district_statBox_districtStat-active district_statBox_box">   
+                                            <p>Active</p> <p class="district_statBox_districtStat-activeNo">432</p>
+                                        </div>
+                                        
+                                        <div class="district_statBox_districtStat-recovered district_statBox_box">
+                                            <p>Recovered</p> <p class="district_statBox_districtStat-recoveredNo">242</p>
+                                        </div>
+                                        <div class="district_statBox_districtStat-death district_statBox_box">
+                                            <p>Death</p> <p class="district_statBox_districtStat-deathNo">44</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -281,7 +418,13 @@
     <!-- footer -->
 
     <footer>
-
+        <p>
+            Application is made in association with the benvolent indian api maintained by hardworking volunteers and open source for public use.
+        </p>
+        <p>
+            You can find the api at    <a href="https://covid19india.org">Covid-19 India api</a>
+            You can also refer to the source code of this application at <a href="https://github.com/joshiCoding/covid-app">Github</a>
+        </p>
     </footer>
 </div>
 </body>

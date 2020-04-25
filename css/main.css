@@ -656,6 +656,30 @@ section .head {
   width: 100%;
 }
 
+footer {
+  width: 100%;
+  background: white;
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+footer p {
+  margin: 20px;
+  font-size: 19.2px;
+}
+
 .sticky_nav {
   position: fixed;
   top: 85%;
@@ -768,7 +792,9 @@ section .head {
 }
 
 .hero_section {
-  border: 2px solid #D0387D;
+  background: #2DBCCE;
+  background: -webkit-gradient(linear, left top, right top, from(#2DBCCE), color-stop(50%, #5CE6E3), to(#FFFFFF));
+  background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
   font-size: 34px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1146,7 +1172,7 @@ section .head {
 }
 
 .searchForYourself .statewise_effectedArea_cityStat {
-  height: 500px;
+  height: auto;
 }
 
 .searchForYourself .statewise_effectedArea_cityStat_box {
@@ -1182,6 +1208,12 @@ section .head {
 }
 
 .searchForYourself .statewise_effectedArea_cityStat .empty_template {
+  display: none;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template {
+  margin: 0;
+  background: #D9F6F8;
   display: none;
 }
 
@@ -1296,5 +1328,201 @@ section .head {
   width: 100%;
   height: auto;
   overflow: hidden;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames {
+  background: #D9F6F8;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districts {
+  border: 2px solid red;
+  height: auto;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districts .district {
+  width: auto;
+  display: inline-block;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districtInfo .district_statBox {
+  background: lightblue;
+  font-weight: 600;
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districtInfo .district_statBox p {
+  margin: 0;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districtInfo .district_statBox_districtName {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 32px;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districtInfo .district_statBox_districtStat {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districtInfo .district_statBox_districtStat .district_statBox_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  border: 2px solid lightblue;
+  background: #D9F6F8;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districtInfo .district_statBox_districtStat .district_statBox_box p {
+  padding: 10px 0;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districtInfo .district_statBox_districtStat .district_statBox_districtStat-confirmed {
+  color: #D0387D;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districtInfo .district_statBox_districtStat .district_statBox_disctrictStat-active {
+  color: #00A4AE;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districtInfo .district_statBox_districtStat .district_statBox_districtStat-recovered {
+  color: #248C1D;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_districtNames_body_districtInfo .district_statBox_districtStat .district_statBox_districtStat-death {
+  color: #121212;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template {
+  display: none;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_distNames_body_distInfo .dist_statBox {
+  background: lightblue;
+  font-weight: 600;
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_distNames_body_distInfo .dist_statBox p {
+  margin: 0;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_distNames_body_distInfo .dist_statBox_distName {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 32px;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_distNames_body_distInfo .dist_statBox_distStat {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_distNames_body_distInfo .dist_statBox_distStat .dist_statBox_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  border: 2px solid lightblue;
+  background: #D9F6F8;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_distNames_body_distInfo .dist_statBox_distStat .dist_statBox_box p {
+  padding: 10px 0;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_distNames_body_distInfo .dist_statBox_distStat .dist_statBox_distStat-confirmed {
+  color: #D0387D;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_distNames_body_distInfo .dist_statBox_distStat .dist_statBox_disctStat-active {
+  color: #00A4AE;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_distNames_body_distInfo .dist_statBox_distStat .dist_statBox_distStat-recovered {
+  color: #248C1D;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_distNames_body_distInfo .dist_statBox_distStat .dist_statBox_distStat-death {
+  color: #121212;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .district_template .state_viewBtn {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #00A4AE;
+  color: white;
+  font-weight: 700;
 }
 /*# sourceMappingURL=main.css.map */
