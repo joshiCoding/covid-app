@@ -196,29 +196,11 @@ function fillDatewiseChart(data, desiredlen){
     datewiseChart.data.datasets[1].data = [];
     datewiseChart.data.datasets[2].data = [];
 
-    // console.log(len);
     const dates = data.cases_time_series.filter((cases, index) => {
         if((len - desiredlen) <= index){
             return true;
         }
     });
-
-   
-    // dates.forEach(cases => {
-    //     datewiseChart.data.labels.push(cases.date);
-    // });
-
-    // dates.forEach( cases => {
-    //     datewiseChart.data.datasets[0].data.push( cases.dailyconfirmed);
-    // })
-
-    // dates.forEach(cases =>{
-    //     datewiseChart.data.datasets[1].data.push( cases.dailyrecovered);
-    // })
-
-    // dates.forEach(cases =>{
-    //     datewiseChart.data.datasets[2].data.push( cases.dailydeceased);
-    // })
 
     dates.forEach(cases => {
          datewiseChart.data.labels.push(cases.date);
@@ -848,6 +830,122 @@ function fillStateDatewiseChart(data, desiredlen){
     
        stateDatewiseChart.update();
 }
+//adding update functionality on buttons
+const statedateLinearBtn = document.querySelector('.state_datewise_linear');
+const statedateBarBtn = document.querySelector('.state_datewise_bar');
+
+const statedateWeekBtn = document.querySelector('.state_datewise_week');
+const statedateMonthBtn = document.querySelector('.state_datewise_month');
+const statedateBegBtn = document.querySelector('.state_datewise_beg');
+
+statedateLinearBtn.addEventListener('click', () =>{
+    statedateBarBtn.classList.remove('chips-active');
+    statedateLinearBtn.classList.add('chips-active');
+    let daysforData ;
+    if(statedateWeekBtn.classList.contains('chips-active')){
+        daysforData = 7;
+    }
+    else if(statedateMonthBtn.classList.contains('chips-active')){
+        daysforData = 30;
+    }
+    else if(statedateBegBtn.classList.contains('chips-active')){
+        daysforData = effectedStateDatewiseData.states_daily.length;
+    }
+
+    stateDatewiseChart.destroy();
+    stateDatewiseChart = new Chart(stateDatewiseCanvas, {
+        type : "line",
+        data : {
+            labels : [],
+            datasets :[
+                {
+                    label : 'Confirmed',
+                    data : [],
+                    borderColor: clrWarning
+                },
+                {
+                    label : 'Recovered',
+                    data : [],
+                    borderColor: clrPrim
+                },
+                {
+                    label : 'Death',
+                    data : [],
+                    borderColor:clrDeath
+                },  
+               
+            ]
+        }
+    });
+    fillStateDatewiseChart(effectedStateDatewiseData, daysforData);
+})
+
+statedateBarBtn.addEventListener('click', () =>{
+    statedateLinearBtn.classList.remove('chips-active');
+    statedateBarBtn.classList.add('chips-active');
+    let daysforData ;
+    if(statedateWeekBtn.classList.contains('chips-active')){
+        daysforData = 7;
+    }
+    else if(statedateMonthBtn.classList.contains('chips-active')){
+        daysforData = 30;
+    }
+    else if(statedateBegBtn.classList.contains('chips-active')){
+        daysforData = effectedStateDatewiseData.states_daily.length;
+    }
+
+
+    stateDatewiseChart.destroy();
+    stateDatewiseChart = new Chart(stateDatewiseCanvas, {
+        type : "bar",
+        data : {
+            labels : [],
+            datasets :[
+                {
+                    label : 'Confirmed',
+                    data : [],
+                    backgroundColor: clrWarning
+                },
+                {
+                    label : 'Recovered',
+                    data : [],
+                    backgroundColor: clrPrim
+                },
+                {
+                    label : 'Death',
+                    data : [],
+                    backgroundColor:clrDeath
+                },  
+               
+            ]
+        }
+    });
+    fillStateDatewiseChart(effectedStateDatewiseData, daysforData);
+});
+
+
+statedateWeekBtn.addEventListener('click', () =>{
+    statedateWeekBtn.classList.add('chips-active');
+    statedateMonthBtn.classList.remove('chips-active');
+    statedateBegBtn.classList.remove('chips-active');
+
+    fillStateDatewiseChart(effectedStateDatewiseData, 7);
+});
+statedateMonthBtn.addEventListener('click',() =>{
+    statedateWeekBtn.classList.remove('chips-active');
+    statedateMonthBtn.classList.add('chips-active');
+    statedateBegBtn.classList.remove('chips-active');
+
+    fillStateDatewiseChart(effectedStateDatewiseData , 30);
+})
+statedateBegBtn.addEventListener('click', () =>{
+    statedateWeekBtn.classList.remove('chips-active');
+    statedateMonthBtn.classList.remove('chips-active');
+    statedateBegBtn.classList.add('chips-active');
+
+    fillStateDatewiseChart(effectedStateDatewiseData , effectedStateDatewiseData.states_daily.length);
+})
+
 
 
 
