@@ -354,6 +354,7 @@ body {
   font-weight: 400;
   background: white;
   color: #00A4AE;
+  font-size: 16px;
 }
 
 button {
@@ -369,6 +370,7 @@ button {
   transition: transform 250ms ease-out, -webkit-transform 250ms ease-out;
   -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  font-size: inherit;
 }
 
 .page-out {
@@ -401,8 +403,8 @@ button {
 
 .card {
   margin: 20px;
-  width: 8rem;
-  height: 8rem;
+  width: 128px;
+  height: 128px;
   border-radius: 10px;
   -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
@@ -423,16 +425,16 @@ button {
 }
 
 .card p {
-  font-size: 16px;
+  font-size: 12.8px;
   margin: 5px;
 }
 
 .card .stat_number {
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .card .stat_name {
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .stat_bar {
@@ -544,7 +546,7 @@ button {
   text-decoration: none;
   color: #05554e;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 19.2px;
   position: relative;
 }
 
@@ -582,6 +584,7 @@ header {
 
 header .logo {
   color: #248C1D;
+  font-size: 32px;
 }
 
 header .menuBtn {
@@ -1100,6 +1103,7 @@ section .head {
   border-top: none;
   position: absolute;
   top: calc(100% + 5px);
+  border: 2px solid red;
   left: 0;
   background: #D9F6F8;
   z-index: 1;
@@ -1107,6 +1111,7 @@ section .head {
   transition: height 150ms linear;
   -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
           box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  pointer-events: all;
   display: none;
 }
 
@@ -1114,6 +1119,10 @@ section .head {
   width: 100%;
   list-style: none;
   padding: 10px;
+}
+
+.searchForYourself .statewise_effectedArea_stateName .match_list .search-box-list:hover {
+  background: #00A4AE;
 }
 
 .searchForYourself .statewise_effectedArea_stat {
@@ -1137,7 +1146,6 @@ section .head {
 }
 
 .searchForYourself .statewise_effectedArea_cityStat {
-  border: 2px solid red;
   height: 500px;
 }
 
@@ -1180,9 +1188,9 @@ section .head {
 .searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox {
   background: lightblue;
   font-weight: 600;
-  width: 90%;
+  width: 100%;
   height: auto;
-  margin: 20px;
+  margin: 20px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1258,5 +1266,35 @@ section .head {
 
 .searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox_stateStat .state_statBox_stateStat-death {
   color: #121212;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_datewise .state_datewise_chips {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_datewise .state_datewise_chips-left {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_datewise .state_datewise_chips-right {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_datewise .state_datewise_graph {
+  border: 2px solid lightblue;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 /*# sourceMappingURL=main.css.map */

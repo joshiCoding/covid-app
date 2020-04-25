@@ -4,6 +4,8 @@
 
 
 //2.vendors
+$spacer : 10px;
+$default-font:16px;
 @import "sass/vendor/normalize";
 
 //3.base styles
@@ -12,13 +14,13 @@ body{
     @include font($font-regular);
     background:white;
     color:$clr-sec;
+    font-size:$default-font;
 }
 button{
     border:none;
     background:inherit;
 }
-$spacer : 10px;
-$default-font:16px;
+
 
 
 //4.components
@@ -26,7 +28,7 @@ $default-font:16px;
     background:white;
     transition:transform 250ms ease-out;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
-
+    font-size:inherit;
 }
 .page-out{
     width:100vw;
@@ -52,8 +54,8 @@ $default-font:16px;
 }
 .card{
     margin:2*$spacer;
-    width:8rem;
-    height:8rem;
+    width:8*$default-font;
+    height:8*$default-font;
     border-radius:10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
 
@@ -62,16 +64,17 @@ $default-font:16px;
     align-items:center;
     justify-content:center;
 
+
     overflow:hidden;
     p{
-        font-size:$default-font;
+        font-size:0.8*$default-font;
         margin:$spacer/2;
     }
     .stat_number{
-        font-size:2*$default-font;
+        font-size:1.5*$default-font;
     }
     .stat_name{
-        font-size:1.5*$default-font;
+        font-size:$default-font;
     }
     
     
@@ -153,7 +156,7 @@ $default-font:16px;
                 text-decoration:none;
                 color:$clr-sec-dark;
                 font-weight:$font-bolder;
-                font-size:1.5rem;
+                font-size:1.2*$default-font;
                 position:relative;
 
                 &::before{
@@ -189,6 +192,7 @@ header{
 
     .logo{
         color:$clr-prim;
+        font-size :2*$default-font;
     }
 
     .menuBtn{
@@ -640,17 +644,22 @@ section{
                 position:absolute;
                 top:calc(100% + 5px);
                 // left:2*$spacer;
+                border:2px solid red;
                 left:0;
                 background:$clr-sec-lighter;
                 z-index:1;
                 transition:height 150ms linear;
                 box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+                pointer-events:all;
 
                 display:none;
                 .search-box-list {
                     width:100%;
                     list-style:none;
                     padding:$spacer;
+                    &:hover{
+                        background:$clr-sec;
+                    }
 
                 }
             }
@@ -674,7 +683,6 @@ section{
         }
 
         &_cityStat{
-            border:2px solid red;
             height:500px;
             &_box{
                 border:2px solid lightblue;
@@ -716,9 +724,9 @@ section{
                 .state_statBox{
                     background:lightblue;
                     font-weight:$font-bold;
-                    width:90%;
+                    width:100%;
                     height:auto;
-                    margin:2*$spacer;
+                    margin:2*$spacer 0;
             
                     display:flex;
                     flex-direction:column;
@@ -779,6 +787,28 @@ section{
                     }
              
                 }
+                .state_datewise{
+                    .state_datewise_chips{
+                        display:flex;
+                        flex-direction:row;
+                        width:100%;
+                
+                    }
+                    .state_datewise_chips-left{
+                        justify-content:flex-start;
+                    }
+                    .state_datewise_chips-right{
+                        justify-content:flex-end;
+                    }
+                
+                    .state_datewise_graph{
+                        border:2px solid lightblue;
+                        width:100%;
+                        height:auto;
+                        overflow:hidden;
+                    }
+                }
+               
             }
         }
     }

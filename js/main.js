@@ -204,22 +204,28 @@ function fillDatewiseChart(data, desiredlen){
     });
 
    
+    // dates.forEach(cases => {
+    //     datewiseChart.data.labels.push(cases.date);
+    // });
+
+    // dates.forEach( cases => {
+    //     datewiseChart.data.datasets[0].data.push( cases.dailyconfirmed);
+    // })
+
+    // dates.forEach(cases =>{
+    //     datewiseChart.data.datasets[1].data.push( cases.dailyrecovered);
+    // })
+
+    // dates.forEach(cases =>{
+    //     datewiseChart.data.datasets[2].data.push( cases.dailydeceased);
+    // })
+
     dates.forEach(cases => {
-        datewiseChart.data.labels.push(cases.date);
-    });
-
-    dates.forEach( cases => {
-        datewiseChart.data.datasets[0].data.push( cases.dailyconfirmed);
-    })
-
-    dates.forEach(cases =>{
-        datewiseChart.data.datasets[1].data.push( cases.dailyrecovered);
-    })
-
-    dates.forEach(cases =>{
-        datewiseChart.data.datasets[2].data.push( cases.dailydeceased);
-    })
-
+         datewiseChart.data.labels.push(cases.date);
+         datewiseChart.data.datasets[0].data.push( cases.dailyconfirmed);
+         datewiseChart.data.datasets[1].data.push( cases.dailyrecovered);
+         datewiseChart.data.datasets[2].data.push( cases.dailydeceased);
+     });
     
      datewiseChart.update();
 }
@@ -573,7 +579,7 @@ function mapLoad(){
     })
 
     //for sorting data (for bubble sorting the array and picking top five of it)
-    for(let i=0;i<districts[0].length-1;i++){
+    for(let i=0;i< (districts[0].length-1);i++){
         for(let j=i;j<districts[0].length;j++){
             if(districts[0][i].active < districts[0][j].active){
                 let temp = districts[0][i];
@@ -622,16 +628,17 @@ let effectedStateData ;
 const effectedState = document.querySelector('.statewise_effectedArea_stateName');
 const effectedStateName = document.querySelector('.search_box');
 const effectedSearchBox = document.querySelector('.search_box_container');
-const effectedActiveNo = document.querySelector('.statewise_effectedArea_stat_bar-active h4');
-const effectedConfirmedNo = document.querySelector('.statewise_effectedArea_stat_bar-confirmed h4');
-const effectedRecoveredNo = document.querySelector('.statewise_effectedArea_stat_bar-recovered h4');
-const effectedDeathNo = document.querySelector('.statewise_effectedArea_stat_bar-death h4');
+const effectedActiveNo = document.querySelector('.state_statBox_stateStat-activeNo');
+const effectedConfirmedNo = document.querySelector('.state_statBox_stateStat-confirmedNo');
+const effectedRecoveredNo = document.querySelector('.state_statBox_stateStat-recoveredNo');
+const effectedDeathNo = document.querySelector('.state_statBox_stateStat-deathNo');
 
 const effectedCityBox = document.querySelector('.statewise_effectedArea_cityStat_box');
 const effectedCityhead = document.querySelector('.statewise_effectedArea_cityStat_para');
 const effectedStateSearchBox = document.querySelector('.match_list');
 
 let effectedStateSearchText  ;
+let effectedStateSearchCode;
 // effectedStateName.value = "Uttar Pradesh";    //default value for test purposes
 
 
@@ -643,11 +650,6 @@ effectedStateName.addEventListener('focus', () =>{
     effectedStateName.value = effectedStateSearchText;
 })
 
-effectedStateName.addEventListener('blur', () =>{
-    effectedSearchBox.classList.remove('search_box_container-active');
-    effectedStateSearchBox.style.display = 'none';
-
-})
 
 effectedState.querySelector('.search_box_container svg').addEventListener('click', () =>{
     effectedStateName.focus();
@@ -655,35 +657,38 @@ effectedState.querySelector('.search_box_container svg').addEventListener('click
 
 //searching the fetched data for keyword as they are types
 
-// effectedStateName.addEventListener('input', () => {
-//     effectedStateSearchText = effectedStateName.value ;
+    // effectedStateName.addEventListener('input', () => {
+    //     effectedStateSearchText = effectedStateName.value ;
 
-//     effectedStateSearchBox.style.display = 'block';
+    //     effectedStateSearchBox.style.display = 'block';
 
-//     let matches = Object.keys(effectedStateData).filter( st =>{
-//         let regex = new RegExp(`^${effectedStateSearchText}`, 'gi');
-//         return st.match(regex);
-//     });
+    //     let matches = Object.keys(effectedStateData).filter( st =>{
+    //         let regex = new RegExp(`^${effectedStateSearchText}`, 'gi');
+    //         return st.match(regex);
+    //     });
 
-//     //  console.log(Object.entries(effectedStateData)[0][1].districtData);
-//     //  Object.entries(effectedStateData).forEach( st =>{
-//     //      console.log(st[1]);
-//     //  })
+    //     //  console.log(Object.entries(effectedStateData)[0][1].districtData);
+    //     //  Object.entries(effectedStateData).forEach( st =>{
+    //     //      console.log(st[1]);
+    //     //  })
 
-//     let output = '';
-//     matches.forEach(match => {
-//         output = output + `<li class = "search-box-list">${match}</li>`;
-//     });
+    //     let output = '';
+    //     matches.forEach(match => {
+    //         output = output + `<li class = "search-box-list">${match}</li>`;
+    //     });
 
-//     if(output === ''){
-//         output = output + `<li class = "search-box-list">No Such State in Database</li>`;
-//     }
+    //     if(output === ''){
+    //         output = output + `<li class = "search-box-list">No Such State in Database</li>`;
+    //     }
 
-//     effectedStateSearchBox.innerHTML = output;
+    //     effectedStateSearchBox.innerHTML = output;
 
-//  })
+    //  })
 
 let matchNames = [];
+let matchStateNames = [];
+let matchDistrictNames = [];
+let matchStateCode = [];
    
    
 
@@ -711,20 +716,138 @@ effectedStateName.addEventListener('input' , ()=>{
     }
 
     effectedStateSearchBox.innerHTML = output;
+    console.log('fired input change');
 })
 
+effectedStateSearchBox.addEventListener('click', e =>{
 
- effectedStateSearchBox.addEventListener('click', e =>{
     effectedStateSearchText =e.target.innerText;
     effectedStateName.value = effectedStateSearchText;
-    // effectedCityhead.innerText = `Cities effected in ${effectedStateSearchText}`;
+    console.log(effectedStateName);
     effectedStateSearchBox.style.display = 'none';
     effectedSearchBox.classList.remove('search_box_container-active');
 
 
-    // fillEffectedStateData(dataofapi);
-    fillEffectedCityData(effectedStateData);
+    fillEffectedStateData(dataofapi);
+    fillStateDatewiseChart(effectedStateDatewiseData , 7);
+    // fillEffectedCityData(effectedStateData);
  })
+
+ 
+
+//  effectedStateName.addEventListener('blur', e =>{
+//     console.log(e.target);
+//     effectedSearchBox.classList.remove('search_box_container-active');
+//     effectedStateSearchBox.style.display = 'none';
+
+// })
+
+
+ //state-datewise section
+const stateDatewiseCanvas = document.querySelector('#state_datewise_graph_canvas');
+let stateDatewiseChart = new Chart(stateDatewiseCanvas, {
+    type : "line",
+    data : {
+        labels : ["a", "b", "c", "d", "e", "f", "g"],
+        datasets :[
+            {
+                label : 'Confirmed',
+                data : [30,20,23,45,67,21,45],
+                borderColor: clrWarning
+            },
+            {
+                label : 'Recovered',
+                data : [10,10,13,15,17,21,15],
+                borderColor: clrPrim
+            },
+            {
+                label : 'Death',
+                data : [0,0,3,5,7,1,5],
+                borderColor:clrDeath
+            }  
+           
+        ]
+    }
+    
+});
+
+//dynamic update of state date-wise chart
+let effectedStateDatewiseData;
+function fillStateDatewiseChart(data, desiredlen){
+    const len = data.states_daily.length;
+    console.log(len);
+    console.log(desiredlen)
+    console.log(len - (len - (desiredlen*3)));
+
+    //emptying the existing value from chart
+    stateDatewiseChart.data.labels = [];
+    stateDatewiseChart.data.datasets[0].data = [];
+    stateDatewiseChart.data.datasets[1].data = [];
+    stateDatewiseChart.data.datasets[2].data = [];
+
+    const dates = data.states_daily.filter((cases, index) => {
+        if((len - (desiredlen*3)) <= index){
+            return cases;
+        }
+    });
+    console.log(dates);
+   
+
+
+    dates.forEach(cases => {
+   
+            // stateDatewiseChart.data.labels.push(cases.date);
+            // console.log(cases.date);
+           
+
+    });
+    let j=0;
+    let  datecollection = [];
+  
+
+   
+
+    let i =0;
+    dates.forEach(cases =>{
+        if(i%3 == 0){
+            datecollection.push(cases.date.slice(0,cases.date.length-3))
+        }
+        i++;
+        if(cases.status === "Confirmed"){
+                Object.entries(cases).forEach( entry => {
+                    if(entry[0] === effectedStateSearchCode){
+                    stateDatewiseChart.data.datasets[0].data.push(entry[1]);
+                        
+                    }
+                }) 
+        }
+
+        if(cases.status === "Recovered"){
+                Object.entries(cases).forEach( entry => {
+                    if(entry[0] === effectedStateSearchCode)
+                    stateDatewiseChart.data.datasets[1].data.push(entry[1]);
+                })
+        }
+        
+        
+        if(cases.status === "Deceased"){
+                Object.entries(cases).forEach( entry => {
+                    if(entry[0] === effectedStateSearchCode)
+                    stateDatewiseChart.data.datasets[2].data.push(entry[1]);
+
+    
+                })
+    
+            }
+    })
+    datecollection.forEach( date =>{
+    stateDatewiseChart.data.labels.push(date);
+    })
+
+
+    
+       stateDatewiseChart.update();
+}
 
 
 
@@ -734,20 +857,38 @@ effectedStateName.addEventListener('input' , ()=>{
 
 // getEffectedData();
 getSearchData();
+getStateDatewiseData();
 
 function getSearchData(){
     fetch('https://api.covid19india.org/v2/state_district_wise.json')
     .then(res => res.json())
     .then( data => {
         effectedSearchData = data;
+
         effectedSearchData.forEach(st =>{
+            matchStateNames.push(st.state);
             matchNames.push(st.state);
+
         }) //storing all state names at once
         effectedSearchData.forEach( dist =>{
             dist.districtData.forEach(distName =>{
+                matchDistrictNames.push(distName.district) ;
                 matchNames.push(distName.district) ;
             });
         }); //storing all district names at once
+        effectedSearchData.forEach(st =>{
+            matchStateCode.push(st.statecode);
+            matchNames.push(st.statecode);
+        }) //storing all state code at once
+        
+    })
+}
+function getStateDatewiseData(){
+    fetch('https://api.covid19india.org/states_daily.json')
+    .then(res => res.json())
+    .then(data =>{
+        effectedStateDatewiseData = data;
+        fillStateDatewiseChart(data,7);
     })
 }
 // function getEffectedData(){
@@ -759,21 +900,31 @@ function getSearchData(){
 //     })
 // }
 
-// function fillEffectedStateData(data){
-//     if(effectedStateName.value == ""){
-//         effectedStateSearchText = "Total";
-//     }
+function fillEffectedStateData(data){
+    if(effectedStateName.value === ""){
+        effectedStateSearchText = "Total";
+    }
+    data.statewise.forEach(st => {
+        if(effectedStateName.value === st.statecode){
+            effectedStateSearchText = st.state;
+            effectedStateSearchCode = st.statecode.toLowerCase();
+        }
+        else if(effectedStateName.value === st.state){
+            effectedStateSearchCode = st.statecode.toLowerCase();
+        }
+    })
 
-//     data.statewise.forEach( st =>{
-//         if(st.state === effectedStateSearchText){
-//             // console.log(st.active);
-//             effectedActiveNo.innerText = st.active;
-//             effectedConfirmedNo.innerText = st.confirmed;
-//             effectedRecoveredNo.innerText = st.recovered;
-//             effectedDeathNo.innerText = st.deaths;
-//         }
-//     });
-// }
+    data.statewise.forEach( st =>{
+        if(st.state === effectedStateSearchText){
+            // console.log(st.active);
+            effectedActiveNo.innerText = st.active;
+            effectedConfirmedNo.innerText = st.confirmed;
+            effectedRecoveredNo.innerText = st.recovered;
+            effectedDeathNo.innerText = st.deaths;
+            document.querySelector('.state_statBox_stateName').innerText = effectedStateSearchText;
+        }
+    });
+}
 
 // function fillEffectedCityData(data){
 //     if(effectedStateName.value == ""){
@@ -810,7 +961,6 @@ function getSearchData(){
 //         effectedCityhead.innerText = `Select State above to see effected cities`;
 //     }
 // }
-
 
 
 
