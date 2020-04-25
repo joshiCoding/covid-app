@@ -70,18 +70,18 @@ function menuClose(){
 }
 
 //experimental use of window scroll
-const linkToIndiaView = document.querySelector('.linkto_indiaView');
-linkToIndiaView.addEventListener('click',e =>{
-    const page = document.querySelector('.page');
-    const indiaView = document.querySelector('#india-view');
+// const linkToIndiaView = document.querySelector('.linkto_indiaView');
+// linkToIndiaView.addEventListener('click',e =>{
+//     const page = document.querySelector('.page');
+//     const indiaView = document.querySelector('#india-view');
 
-    menuClose();
-    let newLinkPos = indiaView.getBoundingClientRect().top ;
-    window.scrollTo(0,newLinkPos);
-    console.log(newLinkPos);
-    console.log(window.scrollTo(0,newLinkPos));
+//     menuClose();
+//     let newLinkPos = indiaView.getBoundingClientRect().top ;
+//     window.scrollTo(0,newLinkPos);
+//     console.log(newLinkPos);
+//     console.log(window.scrollTo(0,newLinkPos));
 
-})
+// })
 
 //testing for scroll up navshow feature (this feature is not needed i think)
 // window.addEventListener('scroll', () =>{
