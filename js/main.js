@@ -22,6 +22,8 @@ const fontClrSec = '#089099';
 //****** gloabal variables
 let dataofapi ;
 
+//preloader script
+const loading = document.querySelectorAll('.loading');
 
 
 // for navbar
@@ -154,6 +156,9 @@ function fillCurrentSituation(data){
 
     statsFor.innerText = today.date;
 
+    loading.forEach( load =>{
+        load.style.display = 'none';
+    })
     
 }
 getData();
