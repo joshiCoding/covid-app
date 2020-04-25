@@ -884,157 +884,9 @@ section .head {
   font-weight: 700;
 }
 
-.statewiseData .statewise_effectedArea {
-  width: 100%;
-  background: #D9F6F8;
-  margin: 20px 0;
-  padding: 10px;
-  padding-bottom: 20px;
-}
-
-.statewiseData .statewise_effectedArea_head {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.statewiseData .statewise_effectedArea_head button {
-  background: inherit;
-}
-
-.statewiseData .statewise_effectedArea_stateName {
-  position: relative;
-}
-
-.statewiseData .statewise_effectedArea_stateName .search_box_container {
-  width: 100%;
-  border: 2px solid red;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  border: 1px solid #00A4AE;
-  border-radius: 20px;
-  margin: 10px 0;
-  background: #D9F6F8;
-  -webkit-transition: -webkit-box-shadow 150ms linear;
-  transition: -webkit-box-shadow 150ms linear;
-  transition: box-shadow 150ms linear;
-  transition: box-shadow 150ms linear, -webkit-box-shadow 150ms linear;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.statewiseData .statewise_effectedArea_stateName .search_box_container .search_box {
-  padding: 10px;
-  width: 90%;
-  background: none;
-  border: none;
-  outline: none;
-}
-
-.statewiseData .statewise_effectedArea_stateName .search_box_container .search_box:placeholder {
-  font-size: 0.8rem;
-}
-
-.statewiseData .statewise_effectedArea_stateName .search_box_container svg {
-  margin-right: 10px;
-  font-size: 1.5rem;
-}
-
-.statewiseData .statewise_effectedArea_stateName .search_box_container-active {
-  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
-          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
-  border: none;
-  outline: none;
-  background: #fff;
-}
-
-.statewiseData .statewise_effectedArea_stateName .match_list {
-  width: 100%;
-  max-height: 300px;
-  overflow: auto;
-  border-top: none;
-  position: absolute;
-  top: calc(100% + 5px);
-  left: 0;
-  background: #D9F6F8;
-  z-index: 1;
-  -webkit-transition: height 150ms linear;
-  transition: height 150ms linear;
-  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
-          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
-  display: none;
-}
-
-.statewiseData .statewise_effectedArea_stateName .match_list .search-box-list {
-  width: 100%;
-  list-style: none;
-  padding: 10px;
-}
-
-.statewiseData .statewise_effectedArea_stat {
-  color: white;
-}
-
-.statewiseData .statewise_effectedArea_stat_bar-confirmed {
-  background: #D0387D;
-}
-
-.statewiseData .statewise_effectedArea_stat_bar-active {
-  background: #00A4AE;
-}
-
-.statewiseData .statewise_effectedArea_stat_bar-recovered {
-  background: #248C1D;
-}
-
-.statewiseData .statewise_effectedArea_stat_bar-death {
-  background: #777;
-}
-
-.statewiseData .statewise_effectedArea_cityStat_box {
-  border: 2px solid lightblue;
-  width: 100%;
-  height: auto;
-}
-
-.statewiseData .statewise_effectedArea_cityStat_box table {
-  border: 2px solid #05554e;
-  width: 100%;
-  border-collapse: collapse;
-  overflow: hidden;
-}
-
-.statewiseData .statewise_effectedArea_cityStat_box table tr {
-  text-align: left;
-  border: 2px solid #05554e;
-  overflow: hidden;
-}
-
-.statewiseData .statewise_effectedArea_cityStat_box table tr td, .statewiseData .statewise_effectedArea_cityStat_box table tr th {
-  border: 2px solid #05554e;
-  text-align: left;
-  padding: 10px;
-  overflow: hidden;
-}
-
-.statewiseData .statewise_effectedArea_cityStat_box_cityList {
-  list-style: none;
-  padding: 5px;
-  text-align: center;
-}
-
 .map {
   margin: 0;
+  background: white;
 }
 
 .map_head {
@@ -1134,6 +986,7 @@ section .head {
 
 .map_mapSvg {
   width: 100%;
+  border: 2px solid lightblue;
   height: auto;
   padding: 0;
   overflow: hidden;
@@ -1146,5 +999,264 @@ section .head {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.map .topDistrictInState {
+  width: 100%;
+  margin: 20px 0;
+  margin-top: -180px;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height 150ms linear;
+  transition: height 150ms linear;
+}
+
+.map .topDistrictInState-active {
+  height: auto;
+}
+
+.searchForYourself {
+  margin: 0;
+  background: #D9F6F8;
+  padding: 0 20px;
+}
+
+.searchForYourself .statewise_effectedArea {
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.searchForYourself .statewise_effectedArea_head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.searchForYourself .statewise_effectedArea_head button {
+  background: inherit;
+}
+
+.searchForYourself .statewise_effectedArea_stateName {
+  position: relative;
+}
+
+.searchForYourself .statewise_effectedArea_stateName .search_box_container {
+  width: 100%;
+  border: 2px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1px solid #00A4AE;
+  border-radius: 20px;
+  margin: 10px 0;
+  background: #D9F6F8;
+  -webkit-transition: -webkit-box-shadow 150ms linear;
+  transition: -webkit-box-shadow 150ms linear;
+  transition: box-shadow 150ms linear;
+  transition: box-shadow 150ms linear, -webkit-box-shadow 150ms linear;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.searchForYourself .statewise_effectedArea_stateName .search_box_container .search_box {
+  padding: 10px;
+  width: 90%;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.searchForYourself .statewise_effectedArea_stateName .search_box_container .search_box:placeholder {
+  font-size: 0.8rem;
+}
+
+.searchForYourself .statewise_effectedArea_stateName .search_box_container svg {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.searchForYourself .statewise_effectedArea_stateName .search_box_container-active {
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  border: none;
+  outline: none;
+  background: #fff;
+}
+
+.searchForYourself .statewise_effectedArea_stateName .match_list {
+  width: 100%;
+  max-height: 300px;
+  overflow: auto;
+  border-top: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background: #D9F6F8;
+  z-index: 1;
+  -webkit-transition: height 150ms linear;
+  transition: height 150ms linear;
+  -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  display: none;
+}
+
+.searchForYourself .statewise_effectedArea_stateName .match_list .search-box-list {
+  width: 100%;
+  list-style: none;
+  padding: 10px;
+}
+
+.searchForYourself .statewise_effectedArea_stat {
+  color: white;
+}
+
+.searchForYourself .statewise_effectedArea_stat_bar-confirmed {
+  background: #D0387D;
+}
+
+.searchForYourself .statewise_effectedArea_stat_bar-active {
+  background: #00A4AE;
+}
+
+.searchForYourself .statewise_effectedArea_stat_bar-recovered {
+  background: #248C1D;
+}
+
+.searchForYourself .statewise_effectedArea_stat_bar-death {
+  background: #777;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat {
+  border: 2px solid red;
+  height: 500px;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat_box {
+  border: 2px solid lightblue;
+  width: 100%;
+  height: 500px;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat_box table {
+  border: 2px solid #05554e;
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat_box table tr {
+  text-align: left;
+  border: 2px solid #05554e;
+  overflow: hidden;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat_box table tr td, .searchForYourself .statewise_effectedArea_cityStat_box table tr th {
+  border: 2px solid #05554e;
+  text-align: left;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat_box_cityList {
+  list-style: none;
+  padding: 5px;
+  text-align: center;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .empty_template {
+  display: none;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox {
+  background: lightblue;
+  font-weight: 600;
+  width: 90%;
+  height: auto;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox p {
+  margin: 0;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox_stateName {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 32px;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox_stateStat {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox_stateStat .state_stateBox_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  overflow: hidden;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  border: 2px solid lightblue;
+  background: #D9F6F8;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox_stateStat .state_stateBox_box p {
+  padding: 10px 0;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox_stateStat .state_statBox_stateStat-confirmed {
+  color: #D0387D;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox_stateStat .state_statBox_stateStat-active {
+  color: #00A4AE;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox_stateStat .state_statBox_stateStat-recovered {
+  color: #248C1D;
+}
+
+.searchForYourself .statewise_effectedArea_cityStat .state_template .state_statBox_stateStat .state_statBox_stateStat-death {
+  color: #121212;
 }
 /*# sourceMappingURL=main.css.map */
