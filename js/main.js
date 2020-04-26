@@ -29,7 +29,32 @@ let dataofapi ;
 //      loader.style.display = 'none';
 //  })
 const loading = document.querySelectorAll('.loading');
+//testing a scroll feature 
+    // function scrollView(from,target){
+    //     console.log(document.querySelector(target).getBoundingClientRect().top - window.pageYOffset)
+    // }
+function smoothScrollTo(target, duration){
+    var target = document.querySelector(target);
+    var targetPos = target.getBoundingClientRect().top;
+    var startPos = window.pageYOffset;
+    var distance = targetPos - startPos;
+    var startTime = null;
 
+    function animation(currentTime){
+        if(startTime === null )startTime = currentTime;
+        var timeElapsed = currentTime - startTime;
+        var run = ease(timeElapsed, startPos, distance,duration);
+        window.scrollTo(0,run);
+        if(timeElapsed < duration) requestAnimationFrame(animation);
+    }
+    function ease(t,b,c,d){
+        t /= d/2;
+        if(t<1) return c/2*t*t*b;
+        t--;
+        return -c/2*(t*(t-2)-1)+b;
+    }
+    requestAnimationFrame(animation);
+}
 
 // for navbar
 const menuBtn = document.querySelector('.menuBtn');
@@ -495,9 +520,14 @@ function mapLoad(){
 
         if(e.target.getAttribute('title') !== null){
             e.target.classList.add('indiaMap_path-active');
+            topDistrictContainer.style.height = topDistrictContainer.childNodes[2].getAttribute('height') + "px";
+            console.log(topDistrictContainer.childNodes[2].getAttribute('height'));
+        }
+        else{
+            topDistrictContainer.style.height = "0";
+
         }
         state.innerText = e.target.getAttribute('title');
-        topDistrictContainer.classList.add('topDistrictInState-active');
 
 
         if(e.target.getAttribute('title') === null){
@@ -571,16 +601,17 @@ function mapLoad(){
     })
 
     //for sorting data (for bubble sorting the array and picking top five of it)
-    for(let i=0;i< (districts[0].length-1);i++){
-        for(let j=i;j<districts[0].length;j++){
-            if(districts[0][i].active < districts[0][j].active){
-                let temp = districts[0][i];
-                districts[0][i] = districts[0][j];
-                districts[0][j] = temp;
+    if(districts[0] !== undefined){
+        for(let i=0;i< (districts[0].length-1);i++){
+            for(let j=i;j<districts[0].length;j++){
+                if(districts[0][i].active < districts[0][j].active){
+                    let temp = districts[0][i];
+                    districts[0][i] = districts[0][j];
+                    districts[0][j] = temp;
+                }
             }
         }
-    }
-    let i = 0;
+        let i = 0;
     districts = districts[0].filter(dist =>{
         i++;
 
@@ -589,7 +620,6 @@ function mapLoad(){
         }
     })
 
-    console.log(districts);
 
 
     
@@ -611,6 +641,9 @@ function mapLoad(){
  
      
       topDistrictChart.update();
+    }
+    
+    
  }
  
  
@@ -649,34 +682,6 @@ effectedState.querySelector('.search_box_container svg').addEventListener('click
 
 //searching the fetched data for keyword as they are types
 
-    // effectedStateName.addEventListener('input', () => {
-    //     effectedStateSearchText = effectedStateName.value ;
-
-    //     effectedStateSearchBox.style.display = 'block';
-
-    //     let matches = Object.keys(effectedStateData).filter( st =>{
-    //         let regex = new RegExp(`^${effectedStateSearchText}`, 'gi');
-    //         return st.match(regex);
-    //     });
-
-    //     //  console.log(Object.entries(effectedStateData)[0][1].districtData);
-    //     //  Object.entries(effectedStateData).forEach( st =>{
-    //     //      console.log(st[1]);
-    //     //  })
-
-    //     let output = '';
-    //     matches.forEach(match => {
-    //         output = output + `<li class = "search-box-list">${match}</li>`;
-    //     });
-
-    //     if(output === ''){
-    //         output = output + `<li class = "search-box-list">No Such State in Database</li>`;
-    //     }
-
-    //     effectedStateSearchBox.innerHTML = output;
-
-    //  })
-
 let matchNames = [];
 let matchStateNames = [];
 let matchDistrictNames = [];
@@ -708,14 +713,12 @@ effectedStateName.addEventListener('input' , ()=>{
     }
 
     effectedStateSearchBox.innerHTML = output;
-    console.log('fired input change');
 })
 
 effectedStateSearchBox.addEventListener('click', e =>{
 
     effectedStateSearchText =e.target.innerText;
     effectedStateName.value = effectedStateSearchText;
-    console.log(effectedStateName);
     effectedStateSearchBox.style.display = 'none';
     effectedSearchBox.classList.remove('search_box_container-active');
 
@@ -729,7 +732,6 @@ effectedStateSearchBox.addEventListener('click', e =>{
     const districtTemplate = document.querySelector('.district_template');
     let isState = false;
     effectedSearchData.forEach(st => {
-        console.log(effectedStateName.value === st.state);
         if(effectedStateName.value === st.statecode.toUpperCase() || effectedStateName.value === st.state){   
           isState = true;
         }
@@ -787,9 +789,6 @@ let stateDatewiseChart = new Chart(stateDatewiseCanvas, {
 let effectedStateDatewiseData;
 function fillStateDatewiseChart(data, desiredlen, stateCode){
     const len = data.states_daily.length;
-    console.log(len);
-    console.log(desiredlen)
-    console.log(len - (len - (desiredlen*3)));
 
     //emptying the existing value from chart
     stateDatewiseChart.data.labels = [];
@@ -802,7 +801,6 @@ function fillStateDatewiseChart(data, desiredlen, stateCode){
             return cases;
         }
     });
-    console.log(dates);
    
     let  datecollection = [];
 
@@ -1071,25 +1069,28 @@ function fillEffectedDistrictData(data){
 const districtContainer = document.querySelector(".state_districtNames_body_districts");
 
 districtContainer.addEventListener('click' , e =>{
-    const distConfirmed = document.querySelector('.district_statBox_districtStat-confirmedNo');
-    const distActive = document.querySelector('.district_statBox_districtStat-activeNo');
-    const distRecovered = document.querySelector('.district_statBox_districtStat-recoveredNo');
-    const distDeath = document.querySelector('.district_statBox_districtStat-deathNo');
-    const districtName = document.querySelector('.district_statBox_districtName');
-
     if(e.target.classList.contains('district')){
-        console.log(e.target.innerText);
+        const distConfirmed = document.querySelector('.district_statBox_districtStat-confirmedNo');
+        const distActive = document.querySelector('.district_statBox_districtStat-activeNo');
+        const distRecovered = document.querySelector('.district_statBox_districtStat-recoveredNo');
+        const distDeath = document.querySelector('.district_statBox_districtStat-deathNo');
+        const districtName = document.querySelector('.district_statBox_districtName');
+        const districtBox = document.querySelector('#district_stat_box')
+        console.log(districtBox);
+        districtContainer.childNodes.forEach(elem =>{
+            elem.classList.remove('chips-active');
+        })
         const distName = e.target.innerText;
         effectedSearchData.forEach(st => {
             st.districtData.forEach( dist =>{
                 if(distName === dist.district){
-                    console.log("Found the district " + dist.district);
                     distConfirmed.innerText = dist.confirmed;
                     distActive.innerText = dist.active;
                     distRecovered.innerText = dist.recovered;
                     distDeath.innerText = dist.deceased;
                     districtName.innerText = dist.district;
-
+                    // smoothScrollTo('#district_stat_box',150)
+                    e.target.classList.add('chips-active');
                 }
             })
         })
@@ -1106,7 +1107,6 @@ function fillDistrictStat(distName){
     effectedSearchData.forEach(st => {
         st.districtData.forEach( dist =>{
             if(distName === dist.district){
-                console.log("Found the district " + dist.district);
                 distConfirmed.innerText = dist.confirmed;
                 distActive.innerText = dist.active;
                 distRecovered.innerText = dist.recovered;

@@ -334,7 +334,10 @@
             <object id="india-map" data="img/svg/indiaMap.svg" type="image/svg+xml">
                 Your Browser does not have support for this kind of advance stuff.
             </object>
+
         </div>
+        <div class="map_note">(Tap on map to see the stat of that area)</div>
+
         <div class="topDistrictInState">
             <canvas id = "topDistrict_canvas"></canvas>
         </div>
@@ -356,25 +359,6 @@
                     </div>
                     <div class="match_list"></div>
                 </div>
-
-                <!-- <div class="statewise_effectedArea_stat">
-                    <div class="statewise_effectedArea_stat_bar-confirmed stat_bar">
-                        <p>Confirmed</p>
-                        <h4>432</h4>
-                    </div>
-                    <div class="statewise_effectedArea_stat_bar-active stat_bar">
-                        <p>Active</p>
-                        <h4>480</h4>
-                    </div>
-                    <div class="statewise_effectedArea_stat_bar-recovered stat_bar">
-                        <p>Recovered</p>
-                        <h4>100</h4>
-                    </div>
-                    <div class="statewise_effectedArea_stat_bar-death stat_bar">
-                        <p>Death</p>
-                        <h4>100</h4>
-                    </div>
-                </div> -->
             </div>
             <div class="statewise_effectedArea_cityStat">
                 <!-- <p class ="statewise_effectedArea_cityStat_para">Cities Effected in Uttar Pradesh</p> -->
@@ -399,7 +383,7 @@
                     </p>
                 </div>
 
-                <div class="state_template">
+                <!-- <div class="state_template">
                     <div class="state_statBox ">
                         <p class="state_statBox_stateName">Total</p>
                         <div class="state_statBox_stateStat">
@@ -474,7 +458,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="district_template">
                     <div class="state_distNames_body_distInfo">
@@ -546,34 +530,29 @@
                         </div>
                         <div class="state_districtNames_body">
                             <div class="state_districtNames_body_districtInfo">
-                                <div class="district_statBox ">
-                                    <p class="district_statBox_districtName">Total</p>
+                                <div class="district_statBox " id="district_stat_box">
+                                    <p class="district_statBox_districtName"  >(Click a district below)</p>
                                     <div class="district_statBox_districtStat">
                                         <div class="district_statBox_districtStat-confirmed district_statBox_box">
-                                            <p>Confirmed</p> <p class="district_statBox_districtStat-confirmedNo">422</p>
+                                            <p>Confirmed</p> <p class="district_statBox_districtStat-confirmedNo">---</p>
                         
                                         </div>
                                         <div class="district_statBox_districtStat-active district_statBox_box">   
-                                            <p>Active</p> <p class="district_statBox_districtStat-activeNo">432</p>
+                                            <p>Active</p> <p class="district_statBox_districtStat-activeNo">---</p>
                                         </div>
                                         
                                         <div class="district_statBox_districtStat-recovered district_statBox_box">
-                                            <p>Recovered</p> <p class="district_statBox_districtStat-recoveredNo">242</p>
+                                            <p>Recovered</p> <p class="district_statBox_districtStat-recoveredNo">---</p>
                                         </div>
                                         <div class="district_statBox_districtStat-death district_statBox_box">
-                                            <p>Death</p> <p class="district_statBox_districtStat-deathNo">44</p>
+                                            <p>Death</p> <p class="district_statBox_districtStat-deathNo">---</p>
                                         </div>
                                     </div>
                                 </div>
-                            <div class="state_districtNames_body_districts"> 
-                                <div class="district chips">Agra</div>
-                                <div class="district chips">Kanpur</div>
-                                <div class="district chips">Moradabad</div>
-                                <div class="district chips">Fareedabad</div>
-                                <div class="district chips">Amroha</div>
-                                <div class="district chips">Bijnor</div>
-                            </div>
-                            
+                                <div class="state_districtNames_body_districts"> 
+                                    <!-- <div class="district chips">Agra</div> -->
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
