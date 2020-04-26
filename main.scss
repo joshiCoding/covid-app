@@ -274,17 +274,25 @@ footer{
     position:fixed;
     top:85%;
     left:80%;
+    background:none;
     z-index:100;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
-    background:white;
+
 
     .plus_btn{
         width:50px;
         height:50px;
         font-size:50px;
         position:relative;
-        border-radius:50%;
         text-align:center;
+        z-index:100;
+
+        border-radius:50%;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+        background:white;
+
+
+
+
         &::before,
         &::after{
             content:'';
@@ -303,6 +311,9 @@ footer{
         }
     }
     .plus_btn-close{
+        border-radius:30px;
+        border-top-left-radius:0;
+        border-top-right-radius:0;
         &::before{
             transform:translate(-50%,-50%) rotate(45deg);
         }
@@ -312,50 +323,62 @@ footer{
         }
     }
     &_menu{
-        $menu-width:70vw;
+        $menu-height:200px;
         display:flex;
-        flex-direction:row-reverse;
+        flex-direction:column;
         align-items:center;
         justify-content:center;
-        border:2px solid red;
         background:white;
-        width:$menu-width;
-        height:100%;
+        width:100%;
+        height:$menu-height;
         position:absolute;
-        top:0;
-        left:-$menu-width;
+        top:-$menu-height;
+        left:0;
+        overflow:hidden;
+        transform:scaleY(0);
+        transform-origin:bottom;
+        transition:transform 150ms linear;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+        border-radius:10px;
+        border-bottom-left-radius:0;
+        border-bottom-right-radius:0;
+        z-index:99;
+
+
         li{
             list-style:none;
             font-size:1.2*$default-font;
-            padding:$spacer/2 $spacer;
+            padding:$spacer;
             position:relative;
             height:100%;
             display:flex;
             align-items:center;
             justify-content:center;
+            cursor:pointer;
             &::after{
                 content:'';
                 position:absolute;
-                top:3px;
-                left:100%;
-                width:2px;
-                height:calc(100% - 6px);
+                top:0;
+                left:3px;
+                width:40px;
+                height:2px;
                 background:#323232;
 
             }
+            &:first-child::after{
+                height:0;
+                background:transparent;
+            }
            
             }
-            &:first-child{
-                border:5px solid red;
-                li::after{
-                    width:0;
-                    background:transparent;
-                }
-            }
+          
 
         }
-        display:none;
+    &_menu-active{
+      transform:scaleY(1);
+
     }
+}
 
     
 

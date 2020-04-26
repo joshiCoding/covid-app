@@ -29,10 +29,7 @@ let dataofapi ;
 //      loader.style.display = 'none';
 //  })
 const loading = document.querySelectorAll('.loading');
-//testing a scroll feature 
-    // function scrollView(from,target){
-    //     console.log(document.querySelector(target).getBoundingClientRect().top - window.pageYOffset)
-    // }
+//global scroll feature 
 function smoothScrollTo(target, duration){
     var target = document.querySelector(target);
     var targetPos = target.getBoundingClientRect().top;
@@ -63,14 +60,7 @@ const menuBtnClose = document.querySelector('.menuBtn-close');
 const mainNav = document.querySelector('.mainNav');
 const page = document.querySelector('.page');
 
-// //testing the position feature
-// const indiaView = document.querySelector('#india-view');
-// let newLinkPos = indiaView.getBoundingClientRect().top ;
-// document.addEventListener('load', () =>{
-//     window.scrollTo(0,newLinkPos);
-// })
 
-// console.log(menuBtnClose);
 menuBtn.addEventListener('click', e =>{
 
     page.classList.toggle("page-out");
@@ -101,32 +91,26 @@ function menuClose(){
     }
 }
 
-//experimental use of window scroll
-// const linkToIndiaView = document.querySelector('.linkto_indiaView');
-// linkToIndiaView.addEventListener('click',e =>{
-//     const page = document.querySelector('.page');
-//     const indiaView = document.querySelector('#india-view');
 
-//     menuClose();
-//     let newLinkPos = indiaView.getBoundingClientRect().top ;
-//     window.scrollTo(0,newLinkPos);
-//     console.log(newLinkPos);
-//     console.log(window.scrollTo(0,newLinkPos));
+//********************* styling for sticky nav bottom
+const plusBtn = document.querySelector('.plus_btn');
+const stickyNavMenu = document.querySelector('.sticky_nav_menu');
+plusBtn.addEventListener('click',()=>{
+    plusBtn.classList.toggle('plus_btn-close');
+    stickyNavMenu.classList.toggle('sticky_nav_menu-active')
+})
+//events on sticky nav
+const searchIcon = document.querySelector('#search_icon');
+const mapIcon = document.querySelector('#india_icon');
+// const darkmodeIcon = document.querySelector('#darkmode_icon');
 
-// })
-
-//testing for scroll up navshow feature (this feature is not needed i think)
-// window.addEventListener('scroll', () =>{
-//     header.classList.add('header-fixed');
-//     header.style.background = "red";
-//     // console.log('current scroll' + window.pageYOffset)
-// }) 
-
-//styling for sticky nav bottom
-// const plusBtn = document.querySelector('.plus_btn');
-// plusBtn.addEventListener('click',()=>{
-//     plusBtn.classList.toggle('plus_btn-close');
-// })
+    searchIcon.addEventListener('click', () =>{
+        smoothScrollTo('.searchForYourself', 350);
+    })
+    mapIcon.addEventListener('click', () =>{
+        smoothScrollTo('.map', 350);
+    })
+    
 
 //********************* using the fetch api here
 function getData(){
