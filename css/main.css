@@ -388,6 +388,7 @@ button {
 
 .chips {
   border: 2px solid #00A4AE;
+  font-size: 14.4px;
   margin: 10px;
   padding: 5px 10px;
   border-radius: 20px;
@@ -792,7 +793,6 @@ footer p {
 }
 
 .hero_section {
-  background: #2DBCCE;
   background: -webkit-gradient(linear, left top, right top, from(#2DBCCE), color-stop(50%, #5CE6E3), to(#FFFFFF));
   background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
   font-size: 34px;
@@ -911,6 +911,8 @@ footer p {
   background: #00A4AE;
   color: white;
   font-weight: 700;
+  -webkit-transition: height 250ms ease-out;
+  transition: height 250ms ease-out;
 }
 
 .map {
@@ -985,7 +987,7 @@ footer p {
       flex-direction: column;
   width: 100%;
   text-align: center;
-  font-size: 16px;
+  font-size: 14.4px;
   border: 2px solid lightblue;
 }
 
@@ -1178,26 +1180,6 @@ footer p {
   height: 500px;
 }
 
-.searchForYourself .statewise_effectedArea_cityStat_box table {
-  border: 2px solid #05554e;
-  width: 100%;
-  border-collapse: collapse;
-  overflow: hidden;
-}
-
-.searchForYourself .statewise_effectedArea_cityStat_box table tr {
-  text-align: left;
-  border: 2px solid #05554e;
-  overflow: hidden;
-}
-
-.searchForYourself .statewise_effectedArea_cityStat_box table tr td, .searchForYourself .statewise_effectedArea_cityStat_box table tr th {
-  border: 2px solid #05554e;
-  text-align: left;
-  padding: 10px;
-  overflow: hidden;
-}
-
 .searchForYourself .statewise_effectedArea_cityStat_box_cityList {
   list-style: none;
   padding: 5px;
@@ -1272,7 +1254,7 @@ footer p {
       flex-direction: column;
   width: 100%;
   text-align: center;
-  font-size: 14px;
+  font-size: 12.8px;
   border: 2px solid lightblue;
   background: #D9F6F8;
 }
@@ -1402,7 +1384,7 @@ footer p {
       flex-direction: column;
   width: 100%;
   text-align: center;
-  font-size: 14px;
+  font-size: 12.8px;
   border: 2px solid lightblue;
   background: #D9F6F8;
 }
@@ -1489,7 +1471,7 @@ footer p {
       flex-direction: column;
   width: 100%;
   text-align: center;
-  font-size: 14px;
+  font-size: 12.8px;
   border: 2px solid lightblue;
   background: #D9F6F8;
 }

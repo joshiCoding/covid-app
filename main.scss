@@ -41,6 +41,7 @@ button{
 
 .chips{
     border:2px solid $clr-sec;
+    font-size:0.9*$default-font;
     margin:$spacer;
     padding:$spacer/2 $spacer;
     border-radius:20px;
@@ -360,10 +361,7 @@ footer{
 
 
 .hero_section{
-      background: #2DBCCE;
-background: -moz-linear-gradient(left, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
-background: -webkit-linear-gradient(left, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
-background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
+    background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
     font-size:34px;
     display:flex;
     text-align:center;
@@ -449,6 +447,7 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
         background:$clr-sec;
         color:white;
         font-weight:$font-bolder;
+        transition:height 250ms ease-out;
     }
     
 }
@@ -505,7 +504,7 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                 flex-direction:column;
                 width:100%;
                 text-align:center;
-                font-size:$default-font;
+                font-size:0.9*$default-font;
                 border:2px solid lightblue;
                 p{
                     padding:$spacer 0;
@@ -621,7 +620,6 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                 border-top:none;
                 position:absolute;
                 top:calc(100% + 5px);
-                // left:2*$spacer;
                 left:0;
                 background:$clr-sec-lighter;
                 z-index:1;
@@ -665,28 +663,6 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                 border:2px solid lightblue;
                 width:100%;
                 height:500px;
-                table{
-                    
-                    border:2px solid $clr-sec-dark;
-                    width:100%;
-                    border-collapse:collapse;
-                    overflow:hidden;
-                    tr{
-                    
-                        text-align:left;
-                        border:2px solid $clr-sec-dark;
-                    overflow:hidden;
-
-
-                        td, th{
-                            border:2px solid $clr-sec-dark;
-                            text-align:left;
-                            padding:$spacer;
-                    overflow:hidden;
-
-                        }
-                    }
-                }
                 &_cityList{
                     list-style:none;
                     padding:$spacer/2;
@@ -741,7 +717,7 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                             flex-direction:column;
                             width:100%;
                             text-align:center;
-                            font-size:$default-font - 2px;
+                            font-size:0.8*$default-font;
                             border:2px solid lightblue;
                             background:$clr-sec-lighter;
                             p{
@@ -843,7 +819,7 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                                         flex-direction:column;
                                         width:100%;
                                         text-align:center;
-                                        font-size:$default-font - 2px;
+                                        font-size:0.8*$default-font;
                                         border:2px solid lightblue;
                                         background:$clr-sec-lighter;
                                         p{
@@ -918,7 +894,7 @@ background: linear-gradient(to right, #2DBCCE 0%, #5CE6E3 50%, #FFFFFF 100%);
                                 flex-direction:column;
                                 width:100%;
                                 text-align:center;
-                                font-size:$default-font - 2px;
+                                font-size:0.8*$default-font;
                                 border:2px solid lightblue;
                                 background:$clr-sec-lighter;
                                 p{
