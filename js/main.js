@@ -93,24 +93,24 @@ function menuClose(){
 
 
 //********************* styling for sticky nav bottom
-const plusBtn = document.querySelector('.plus_btn');
-const stickyNavMenu = document.querySelector('.sticky_nav_menu');
-plusBtn.addEventListener('click',()=>{
-    plusBtn.classList.toggle('plus_btn-close');
-    stickyNavMenu.classList.toggle('sticky_nav_menu-active')
-})
-//events on sticky nav
-const searchIcon = document.querySelector('#search_icon');
-const mapIcon = document.querySelector('#india_icon');
-// const darkmodeIcon = document.querySelector('#darkmode_icon');
+    // const plusBtn = document.querySelector('.plus_btn');
+    // const stickyNavMenu = document.querySelector('.sticky_nav_menu');
+    // plusBtn.addEventListener('click',()=>{
+    //     plusBtn.classList.toggle('plus_btn-close');
+    //     stickyNavMenu.classList.toggle('sticky_nav_menu-active')
+    // })
+    // //events on sticky nav
+    // const searchIcon = document.querySelector('#search_icon');
+    // const mapIcon = document.querySelector('#india_icon');
+    // // const darkmodeIcon = document.querySelector('#darkmode_icon');
 
-    searchIcon.addEventListener('click', () =>{
-        smoothScrollTo('.searchForYourself', 350);
-    })
-    mapIcon.addEventListener('click', () =>{
-        smoothScrollTo('.map', 350);
-    })
-    
+    //     searchIcon.addEventListener('click', () =>{
+    //         smoothScrollTo('.searchForYourself', 350);
+    //     })
+    //     mapIcon.addEventListener('click', () =>{
+    //         smoothScrollTo('.map', 350);
+    //     })
+        
 
 //********************* using the fetch api here
 function getData(){
