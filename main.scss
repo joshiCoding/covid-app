@@ -257,14 +257,23 @@ section{
 footer{
     width:100%;
     background:white;
-    height:500px;
+    height:auto;
     display:flex;
     align-items:center;
     justify-content:center;
     flex-direction:column;
-    p{
-        margin:2*$spacer;
+    div{
+        margin:3*$spacer;
         font-size:1.2*$default-font;
+        border:2px solid red;
+
+        p{
+            margin:0;
+            text-align:center;            
+        }
+        .big{
+            font-size:2*$default-font;
+        }
     }
 }
 
@@ -566,6 +575,7 @@ footer{
 
     }
     .map_note{
+        margin:2*$spacer;
         margin-top:-180px;
     }
     .topDistrictInState{
