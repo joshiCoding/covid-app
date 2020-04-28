@@ -690,6 +690,12 @@ footer div .big {
   font-size: 32px;
 }
 
+footer div a,
+footer div a:active,
+footer div a:visited {
+  color: #248C1D;
+}
+
 .sticky_nav {
   position: fixed;
   top: 85%;

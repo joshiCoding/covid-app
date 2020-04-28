@@ -268,10 +268,17 @@ footer{
 
         p{
             margin:0;
-            text-align:center;            
+            text-align:center;   
+            
+                   
         }
         .big{
             font-size:2*$default-font;
+        }
+        a,
+        a:active,
+        a:visited{
+            color:$clr-prim;
         }
     }
 }
